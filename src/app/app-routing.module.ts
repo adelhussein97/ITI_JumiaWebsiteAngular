@@ -11,7 +11,7 @@ import { ProductdetailsComponent } from './Components/productdetails/productdeta
 
 const routes: Routes =
 [
- 
+
   {path:'',component:MainComponent,
   children:[
    {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
@@ -19,12 +19,13 @@ const routes: Routes =
     {path:'products',component:ProductComponent ,title:'products page'},
     {path:'category',component:CategoryComponent ,title:'products page'},
     {path:'order',component:OrderComponent , title:'order page'},
+    {path:'productsDetails',component:ProductdetailsComponent},
     {path:'productsDetails/:proId',component:ProductdetailsComponent},
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard
 
-  
+
 ];
 
 @NgModule({
