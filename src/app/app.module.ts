@@ -16,7 +16,9 @@ import { MainComponent } from './Components/main/main.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
-
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { HttpClientModule} from '@angular/common/http';
     NotFoundComponent,
     ProductdetailsComponent,
     AllProductsComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent,
+    RegisterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

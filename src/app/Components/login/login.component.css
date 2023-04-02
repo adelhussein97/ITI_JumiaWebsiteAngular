@@ -1,0 +1,113 @@
+
+.selectinput{
+    position: relative;
+    padding-right:5px ;
+ }
+ .selectinput select{
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid rgba(103, 92, 92, 0.25);
+    border-width: 3px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    transition: 0.5s;
+ }
+.selectinput span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color:rgb(130, 122, 122);
+    transition: 0.5s;
+}
+
+.selectinput select:valid ~ span,
+.selectinput select:focus ~ span
+{
+    color: #f8982d ;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 1em;
+    padding: 0 10px;
+    background-color: white;
+    letter-spacing: 0.2em;
+
+}
+.selectinput select:valid ,
+.selectinput select:focus {
+    border: 1px solid #f8982d ;
+}
+ /* input phone */
+.inputbox{
+    position: relative;
+    width: 20vw;
+    font-size: 15px;
+}
+.inputbox input{
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(103, 92, 92, 0.25);
+    border-width: 3px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    transition: 0.5s;
+    
+
+}
+.inputbox span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color:rgb(130, 122, 122);
+    transition: 0.5s;
+}
+
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span
+{
+    color: #f8982d ;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 1em;
+    padding: 0 10px;
+    background-color: white;
+    letter-spacing: 0.2em;
+
+}
+.inputbox input:valid ,
+.inputbox input:focus {
+    border: 1px solid #f8982d ;
+}
+
+.btn-sign-in-continue{
+    background-color:#f8982d ;
+    width: 30vw;
+    height: 8vh;
+}
+.btn-sign-in-continue:hover{
+    background-color:#f8982d ;
+}
+.linkToRegister a{
+    color:#f8982d !important;
+    text-decoration: none;
+}
+@media (min-width: 1400px) { 
+    .inputbox{
+        width:30vw !important;
+    }
+  
+ }
+@media (min-width: 600px) { 
+    .inputbox{
+        width: 80vw;
+    }
+  
+    .btn-sign-in-continue{
+        width: 40em !important;
+    }
+ }

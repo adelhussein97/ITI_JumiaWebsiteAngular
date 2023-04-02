@@ -8,6 +8,9 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ProductComponent } from './Components/product/product.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes =
 [
@@ -18,8 +21,16 @@ const routes: Routes =
   {path:'home',component:HomeComponent,title:'Home Page'},
     {path:'product',component:ProductComponent ,title:'products page'},
     {path:'category',component:CategoryComponent ,title:'products page'},
+
+    {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
+  
+    {path:'register',component:RegisterComponent,title:'Register Page'},
+    {path:'login',component:LoginComponent , title:'Login page'},
+    {path:'contact',component:ContactComponent,title:'Contact Page'},
+   
+
     {path:'order',component:OrderComponent , title:'order page'},
-    {path:'productsDetails/:proId',component:ProductdetailsComponent},
+    {path:'productsDetails/:proId',component:ProductdetailsComponent}
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard
