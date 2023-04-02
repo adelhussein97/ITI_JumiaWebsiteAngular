@@ -13,6 +13,9 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { AllProductsComponent } from './Components/all-products/all-products.component';
 import { MainComponent } from './Components/main/main.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { MainComponent } from './Components/main/main.component';
     NotFoundComponent,
     ProductdetailsComponent,
     AllProductsComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent,
+    RegisterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
