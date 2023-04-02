@@ -8,10 +8,11 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ProductComponent } from './Components/product/product.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 
 const routes: Routes =
 [
- 
+
   {path:'',component:MainComponent,
   children:[
    {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
@@ -19,12 +20,13 @@ const routes: Routes =
     {path:'products',component:ProductComponent ,title:'products page'},
     {path:'category',component:CategoryComponent ,title:'products page'},
     {path:'order',component:OrderComponent , title:'order page'},
+    { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
     {path:'productsDetails/:proId',component:ProductdetailsComponent},
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard
 
-  
+
 ];
 
 @NgModule({

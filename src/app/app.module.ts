@@ -13,6 +13,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { AllProductsComponent } from './Components/all-products/all-products.component';
 import { MainComponent } from './Components/main/main.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MainComponent } from './Components/main/main.component';
     NotFoundComponent,
     ProductdetailsComponent,
     AllProductsComponent,
-    MainComponent
+    MainComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
