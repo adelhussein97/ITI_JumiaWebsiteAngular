@@ -18,8 +18,8 @@ import { ContactComponent } from './Components/contact/contact.component';
 const routes: Routes =
 [
 
-    {
-      path: '', component: MainComponent,
+  {
+    path:'',component:MainComponent,
     children:
       [
               {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
