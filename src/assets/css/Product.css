@@ -1,0 +1,31 @@
+* {
+	box-sizing: border-box;
+	transition: 0.3s;
+	list-style: none;
+	border: none !important;
+	outline: none !important;
+	text-decoration: none !important;
+}
+.down {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.down button:hover {
+	background-color: orange;
+}
+.left {
+	height: 100% !important;
+}
+.category p {
+	cursor: pointer;
+}
+.subcategory p:hover {
+	color: blue !important;
+}
+@media (max-width: 786px) {
+	.right {
+		padding: 0;
+	}
+}
