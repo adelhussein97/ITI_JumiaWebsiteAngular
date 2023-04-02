@@ -18,25 +18,22 @@ import { ContactComponent } from './Components/contact/contact.component';
 const routes: Routes =
 [
 
-  {path:'',component:MainComponent,
-  children:[
-   {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
-  {path:'home',component:HomeComponent,title:'Home Page'},
-    {path:'product',component:ProductComponent ,title:'products page'},
-    {path:'category',component:CategoryComponent ,title:'products page'},
+    {
+      path: '', component: MainComponent,
+    children:
+      [
+              {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
+              {path:'home',component:HomeComponent,title:'Home Page'},
+              {path:'product',component:ProductComponent ,title:'products page'},
+              {path:'category',component:CategoryComponent ,title:'products page'},
+              {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
+              {path:'register',component:RegisterComponent,title:'Register Page'},
+              {path:'login',component:LoginComponent , title:'Login page'},
+              {path:'contact',component:ContactComponent,title:'Contact Page'},
+              {path:'order',component:OrderComponent , title:'order page'},
+              {path:'productsDetails',component:ProductdetailsComponent},
+              { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
 
-    {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
-  
-    {path:'register',component:RegisterComponent,title:'Register Page'},
-    {path:'login',component:LoginComponent , title:'Login page'},
-    {path:'contact',component:ContactComponent,title:'Contact Page'},
-   
-
-    {path:'order',component:OrderComponent , title:'order page'},
-    {path:'productsDetails',component:ProductdetailsComponent},
-    { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
-
-   
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard
