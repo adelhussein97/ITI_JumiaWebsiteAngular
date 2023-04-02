@@ -13,6 +13,9 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { AllProductsComponent } from './Components/all-products/all-products.component';
 import { MainComponent } from './Components/main/main.component';
+
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
@@ -34,6 +37,7 @@ import { ContactComponent } from './Components/contact/contact.component';
     ProductdetailsComponent,
     AllProductsComponent,
     MainComponent,
+    AboutUsComponent,
     LoginComponent,
     RegisterComponent,
     ContactComponent

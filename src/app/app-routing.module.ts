@@ -8,9 +8,12 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ProductComponent } from './Components/product/product.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { ContactComponent } from './Components/contact/contact.component';
+
 
 const routes: Routes =
 [
@@ -30,7 +33,11 @@ const routes: Routes =
    
 
     {path:'order',component:OrderComponent , title:'order page'},
-    {path:'productsDetails/:proId',component:ProductdetailsComponent}
+
+    { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
+    {path:'productsDetails/:proId',component:ProductdetailsComponent},
+
+   
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard
