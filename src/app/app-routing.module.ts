@@ -8,19 +8,35 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { OrderComponent } from './Components/order/order.component';
 import { ProductComponent } from './Components/product/product.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { ContactComponent } from './Components/contact/contact.component';
+
 
 const routes: Routes =
 [
 
   {path:'',component:MainComponent,
   children:[
-   {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
-  {path:'Home',component:HomeComponent,title:'Home Page'},
-    {path:'products',component:ProductComponent ,title:'products page'},
+   {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
+  {path:'home',component:HomeComponent,title:'Home Page'},
+    {path:'product',component:ProductComponent ,title:'products page'},
     {path:'category',component:CategoryComponent ,title:'products page'},
+
+    {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
+  
+    {path:'register',component:RegisterComponent,title:'Register Page'},
+    {path:'login',component:LoginComponent , title:'Login page'},
+    {path:'contact',component:ContactComponent,title:'Contact Page'},
+   
+
     {path:'order',component:OrderComponent , title:'order page'},
     {path:'productsDetails',component:ProductdetailsComponent},
-    {path:'productsDetails/:proId',component:ProductdetailsComponent},
+    { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
+
+   
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard

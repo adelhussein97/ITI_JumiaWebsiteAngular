@@ -68,7 +68,7 @@
         </div>
 
         <div class="text-main-color m-2 p-3 fs-4">
-          <a href="index.html" class="text-main-color">
+          <a routerLink="/home" class="text-main-color">
             <i class="fa-regular ps-2 fa-star-half-stroke ms-2"></i>
             JUMIA</a>
         </div>
@@ -95,13 +95,13 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end m-2 fs-5">
                 <li class="btn btn-warning m-2">
-                  <a class="dropdown-item d-flex justify-content-start fs-5" href="Login.html">تسجيل الدخول</a>
+                  <a class="dropdown-item d-flex justify-content-start fs-5" routerLink="/login">تسجيل الدخول</a>
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item d-flex justify-content-start" href="Register.html">
+                  <a class="dropdown-item d-flex justify-content-start" routerLink="/Register">
                     <i class="fa-regular fa-user ms-2"></i>
                     الحســاب
                   </a>
@@ -116,7 +116,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end fs-5">
                 <li class="m-2">
-                  <a class="dropdown-item d-flex justify-content-start" href="Contactus.html">مركز المساعدة</a>
+                  <a class="dropdown-item d-flex justify-content-start"  routerLink="/contact">مركز المساعدة</a>
                 </li>
                 <li class="m-2">
                   <a class="dropdown-item d-flex justify-content-start" href="#">المساعدة في
@@ -128,7 +128,9 @@
                     طلبي</a>
                 </li>
                 <li class="m-2">
-                  <a class="dropdown-item d-flex justify-content-start" href="AboutUs.html">نبذه عنا</a>
+                  <!-- <a class="dropdown-item d-flex justify-content-start" href="AboutUs.html">نبذه عنا</a> -->
+                  <a class="dropdown-item d-flex justify-content-start" routerLink="/AboutUs" routerLinkActive="active">نبذه عنا</a>
+                  <!-- <a class="nav-link" routerLink="/AboutUs" routerLinkActive="active">About Us</a> -->
                 </li>
               </ul>
             </li>
