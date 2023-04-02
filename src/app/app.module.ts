@@ -13,6 +13,9 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { AllProductsComponent } from './Components/all-products/all-products.component';
 import { MainComponent } from './Components/main/main.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { MainComponent } from './Components/main/main.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
