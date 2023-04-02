@@ -33,9 +33,8 @@ const routes: Routes =
    
 
     {path:'order',component:OrderComponent , title:'order page'},
-
+    {path:'productsDetails',component:ProductdetailsComponent},
     { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
-    {path:'productsDetails/:proId',component:ProductdetailsComponent},
 
    
   ]},
