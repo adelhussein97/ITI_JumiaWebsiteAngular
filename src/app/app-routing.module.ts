@@ -14,23 +14,28 @@ import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes =
 [
- 
+
   {path:'',component:MainComponent,
   children:[
+   {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
+  {path:'home',component:HomeComponent,title:'Home Page'},
+    {path:'product',component:ProductComponent ,title:'products page'},
+    {path:'category',component:CategoryComponent ,title:'products page'},
+
     {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
-    {path:'Home',component:HomeComponent,title:'Home Page'},
+  
     {path:'register',component:RegisterComponent,title:'Register Page'},
     {path:'login',component:LoginComponent , title:'Login page'},
     {path:'contact',component:ContactComponent,title:'Contact Page'},
-    {path:'products',component:ProductComponent ,title:'products page'},
-    {path:'category',component:CategoryComponent ,title:'Category page'},
+   
+
     {path:'order',component:OrderComponent , title:'order page'},
     {path:'productsDetails/:proId',component:ProductdetailsComponent}
   ]},
 
   {path:'**',component:NotFoundComponent} // wildcard
 
-  
+
 ];
 
 @NgModule({
