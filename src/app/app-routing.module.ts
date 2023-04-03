@@ -1,18 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllProductsComponent } from './Components/all-products/all-products.component';
-import { CategoryComponent } from './Components/category/category.component';
+
 import { HomeComponent } from './Components/home/home.component';
 import { MainComponent } from './Components/main/main.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
-import { OrderComponent } from './Components/order/order.component';
-import { ProductComponent } from './Components/product/product.component';
-import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
-import { AboutUsComponent } from './Components/about-us/about-us.component';
-
-import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component';
-import { ContactComponent } from './Components/contact/contact.component';
 
 
 const routes: Routes =
@@ -22,22 +13,38 @@ const routes: Routes =
   children:[
    {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
   {path:'home',component:HomeComponent,title:'Home Page'},
-    {path:'product',component:ProductComponent ,title:'products page'},
-    {path:'category',component:CategoryComponent ,title:'products page'},
+  // {path:'home',component:HomeComponent,title:'Home Page'},
 
-    {path:'',redirectTo:'/Home',pathMatch:'full'}, // Default Page if empty
-  
-    {path:'register',component:RegisterComponent,title:'Register Page'},
-    {path:'login',component:LoginComponent , title:'Login page'},
-    {path:'contact',component:ContactComponent,title:'Contact Page'},
-   
+    // {path:'register',component:RegisterComponent,title:'Register Page'},
+    // {path:'login',component:LoginComponent , title:'Login page'},
+    // {path:'contact',component:ContactComponent,title:'Contact Page'},
 
-    {path:'order',component:OrderComponent , title:'order page'},
-    {path:'productsDetails',component:ProductdetailsComponent},
-    { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
+    // {path:'productsDetails',component:ProductdetailsComponent},
+    // { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
+    {
+      path:'product',
+      loadChildren: () => import('src/app/Components/product-module/product.module').then(m => m.ProductModule)
+    },
+    {
+      path:'identity',
+      loadChildren: () => import('src/app/Components/identity-module/identity.module').then(m => m.IdentityModule)
+    },
+    {
+      path:'contacts',
+      loadChildren: () => import('src/app/Components/contact-module/contact.module').then(m => m.ContactModule)
+    },
+    {
+      path:'AboutUss',
+      loadChildren: () => import('src/app/Components/aboutus-module/aboutus.module').then(m => m.AboutusModule)
+    },
+    {
+      path:'category',
+      loadChildren: () => import('src/app/Components/category-module/category.module').then(m => m.CategoryModule)
+    },
 
-   
+
   ]},
+
 
   {path:'**',component:NotFoundComponent} // wildcard
 
