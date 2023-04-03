@@ -5,8 +5,13 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './Components/footer/footer.component';
 // import { ProductComponent } from './Components/product/product.component';
 
+// import { ProductComponent } from './Components/product/product.component';
+
 import { HeaderComponent } from './Components/header/header.component';
 import { MainComponent } from './Components/main/main.component';
+
+
+
 import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './Components/home/home.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
@@ -22,6 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
+
+
+
+
 
 
 
