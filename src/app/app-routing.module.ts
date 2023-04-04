@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { HomeComponent } from './Components/home/home.component';
 import { MainComponent } from './Components/main/main.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+
 
 
 const routes: Routes =
@@ -13,14 +13,7 @@ const routes: Routes =
   children:[
    {path:'',redirectTo:'/home',pathMatch:'full'}, // Default Page if empty
   {path:'home',component:HomeComponent,title:'Home Page'},
-  // {path:'home',component:HomeComponent,title:'Home Page'},
 
-    // {path:'register',component:RegisterComponent,title:'Register Page'},
-    // {path:'login',component:LoginComponent , title:'Login page'},
-    // {path:'contact',component:ContactComponent,title:'Contact Page'},
-
-    // {path:'productsDetails',component:ProductdetailsComponent},
-    // { path: 'AboutUs', component: AboutUsComponent, title: 'AboutUs Page' },
     {
       path:'product',
       loadChildren: () => import('src/app/Components/product-module/product.module').then(m => m.ProductModule)
