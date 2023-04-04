@@ -1,4 +1,3 @@
-
 .selectinput{
     position: relative;
     padding-right:5px ;
@@ -43,7 +42,6 @@
 .inputbox{
     position: relative;
     width: 20vw;
-    font-size: 15px;
 }
 .inputbox input{
     height: 60px;
@@ -96,15 +94,15 @@
     color:#f8982d !important;
     text-decoration: none;
 }
-@media (min-width: 1400px) { 
+@media (max-width: 1400px) { 
     .inputbox{
-        width:30vw !important;
+        width:30vw  !important;
     }
   
  }
-@media (min-width: 600px) { 
+@media (max-width: 600px) { 
     .inputbox{
-        width: 80vw;
+        width: 45em !important;
     }
   
     .btn-sign-in-continue{
