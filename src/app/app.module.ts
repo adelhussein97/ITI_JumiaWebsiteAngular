@@ -7,7 +7,7 @@ import { ProductComponent } from './Components/product/product.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { MainComponent } from './Components/main/main.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
@@ -44,6 +44,7 @@ import { HomeComponent } from './Components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
 
   ],
