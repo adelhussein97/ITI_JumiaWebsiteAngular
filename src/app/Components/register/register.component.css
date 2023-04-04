@@ -97,21 +97,21 @@
     color:#f8982d !important;
     text-decoration: none;
 }
-@media (min-width: 1400px) { 
+@media (max-width: 1400px) { 
     .inputbox{
-        width: 20vw !important;
+        width: 30vw !important;
     }
     .selectinput{
         width:10vw !important;
     }
   
  }
-@media (min-width: 600px) { 
+@media (max-width: 600px) { 
     .inputbox{
-        width: 60vw;
+        width: 26em !important;
     }
     .selectinput{
-        width:30vw ;
+        width:10em !important ;
     }
     .btn-sign-in-continue{
         width: 40em !important;
