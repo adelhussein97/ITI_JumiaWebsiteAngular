@@ -6,7 +6,11 @@
       <div class="container h-25">
         <div class="row d-flex justify-content-around">
           <div class="col w-25 w-md-50 col-lg-100">
-            <img class="w-100 w-md-50 col-lg-100" src="./assets/images/home/headerRamadanAR.png" alt="" />
+            <img
+              class="w-100 w-md-50 col-lg-100"
+              src="./assets/images/home/headerRamadanAR.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -49,22 +53,38 @@
     <nav class="navbar navbar-expand-lg bg-body-light">
       <div class="container">
         <div class="nav-item dropdown ms-3 fs-4 d-none d-lg-flex">
-          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a
+            class="nav-link"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <i class="fa-solid fa-bars fs-4"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end mt-3 fs-5">
             <li class="m-2">
-              <a class="dropdown-item d-flex justify-content-start" routerLink="/product/allproducts"
-                routerLinkActive="active">المنتجات</a>
+              <a
+                class="dropdown-item d-flex justify-content-start"
+                routerLink="/product/allproducts"
+                routerLinkActive="active"
+                >المنتجات</a
+              >
             </li>
             <li class="m-2">
-              <a class="dropdown-item d-flex justify-content-start" routerLink="/product/productdetails"
-                routerLinkActive="active">
-                تفاصيل المنتجات</a>
+              <a
+                class="dropdown-item d-flex justify-content-start"
+                routerLink="/product/productdetails"
+                routerLinkActive="active"
+              >
+                تفاصيل المنتجات</a
+              >
             </li>
 
             <li class="m-2">
-              <a class="dropdown-item d-flex justify-content-start" href="#">إلغاء طلبي</a>
+              <a class="dropdown-item d-flex justify-content-start" href="#"
+                >إلغاء طلبي</a
+              >
             </li>
           </ul>
         </div>
@@ -72,70 +92,124 @@
         <div class="text-main-color m-2 p-3 fs-4">
           <a routerLink="/home" class="text-main-color">
             <i class="fa-regular ps-2 fa-star-half-stroke ms-2"></i>
-            JUMIA</a>
+            JUMIA</a
+          >
         </div>
         <div class="input-group w-50 me-5">
-          <span class="input-group-text me-5 fs-3" id="addon-wrapping"><i
-              class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" class="form-control fs-3" placeholder="البحث عن منتجات ، اصناف"
-            aria-label="Example text with button addon" aria-describedby="button-addon1" />
+          <span class="input-group-text me-5 fs-3" id="addon-wrapping"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+          <input
+            type="text"
+            class="form-control fs-3"
+            placeholder="البحث عن منتجات ، اصناف"
+            aria-label="Example text with button addon"
+            aria-describedby="button-addon1"
+          />
           <button type="button" class="btn rounded-4 search me-3 fs-3">
             بحث
           </button>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a
+                class="nav-link dropdown-toggle fs-5"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 <i class="fa-regular fa-user"></i>
-                تسجيل الدخول
+                الحســاب
               </a>
               <ul class="dropdown-menu dropdown-menu-end m-2 fs-5">
                 <li class="btn btn-warning m-2">
-                  <a class="dropdown-item d-flex justify-content-start fs-5" routerLink="/identity/login"
-                    routerLinkActive="active">تسجيل الدخول</a>
+                  <a
+                    class="dropdown-item d-flex justify-content-start fs-5"
+                    routerLink="/identity/login"
+                    routerLinkActive="active"
+                    *ngIf="!_authServices.loggedIn()"
+                    >تسجيل الدخول</a
+                  >
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item d-flex justify-content-start" routerLink="/identity/Register"
-                    routerLinkActive="active">
+                  <a
+                    class="dropdown-item d-flex justify-content-start"
+                    routerLink="/identity/Register"
+                    routerLinkActive="active"
+                    *ngIf="!_authServices.loggedIn()"
+                  >
                     <i class="fa-regular fa-user ms-2"></i>
-                    الحســاب
+                    انشاء حساب
+                  </a>
+                </li>
+                <li (click)="_authServices.LogOut()">
+                  <a
+                    class="dropdown-item d-flex justify-content-start"
+                    routerLink="/home"
+                    routerLinkActive="active"
+                    *ngIf="_authServices.loggedIn()"
+                  >
+                    <i class="fa-regular fa-user ms-2"></i>
+                    تسجيل خروج
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item dropdown fs-4">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 <i class="fa-regular fa-circle-question"></i>
                 مســاعدة
               </a>
               <ul class="dropdown-menu dropdown-menu-end fs-5">
                 <li class="m-2">
-                  <a class="dropdown-item d-flex justify-content-start" routerLink="/contacts/contact"
-                    routerLinkActive="active">مركز المساعدة</a>
+                  <a
+                    class="dropdown-item d-flex justify-content-start"
+                    routerLink="/contacts/contact"
+                    routerLinkActive="active"
+                    >مركز المساعدة</a
+                  >
                 </li>
                 <li class="m-2">
-                  <a class="dropdown-item d-flex justify-content-start" href="#">المساعدة في
-                    طلبك</a>
+                  <a class="dropdown-item d-flex justify-content-start" href="#"
+                    >المساعدة في طلبك</a
+                  >
                 </li>
 
                 <li class="m-2">
-                  <a class="dropdown-item d-flex justify-content-start" href="#">إلغاء
-                    طلبي</a>
+                  <a class="dropdown-item d-flex justify-content-start" href="#"
+                    >إلغاء طلبي</a
+                  >
                 </li>
                 <li class="m-2">
                   <!-- <a class="dropdown-item d-flex justify-content-start" href="AboutUs.html">نبذه عنا</a> -->
-                  <a class="dropdown-item d-flex justify-content-start" routerLink="/AboutUss/AboutUs"
-                    routerLinkActive="active">نبذه عنا</a>
+                  <a
+                    class="dropdown-item d-flex justify-content-start"
+                    routerLink="/AboutUss/AboutUs"
+                    routerLinkActive="active"
+                    >نبذه عنا</a
+                  >
                   <!-- <a class="nav-link" routerLink="/AboutUs" routerLinkActive="active">About Us</a> -->
                 </li>
               </ul>
