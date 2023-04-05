@@ -15,6 +15,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Components/home/home.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { ProductModule } from './Components/product-module/product.module';
+import { IdentityModule } from './Components/identity-module/identity.module';
+import { CheckoutModule } from './Components/checkout-module/checkout-module';
+import { ContactModule } from './Components/contact-module/contact.module';
+import { OrderModule } from './Components/order-module/order.module';
+import { AboutusModule } from './Components/aboutus-module/aboutus.module';
+import { CategoryModule } from './Components/category-module/category.module';
+
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 
 @NgModule({
@@ -33,6 +42,14 @@ import { AuthGuardGuard } from './guard/auth-guard.guard';
     ReactiveFormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ProductModule,
+    IdentityModule,
+    CheckoutModule,
+    ContactModule,
+    OrderModule,
+    AboutusModule,
+    CategoryModule
+
   ],
   providers: [AuthServicesService, AuthGuardGuard],
   bootstrap: [AppComponent],

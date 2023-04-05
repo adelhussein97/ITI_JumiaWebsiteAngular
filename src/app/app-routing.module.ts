@@ -41,6 +41,10 @@ const routes: Routes =
       path:'category',
       loadChildren: () => import('src/app/Components/category-module/category.module').then(m => m.CategoryModule)
     },
+    {
+      path:'checkout',
+      loadChildren: () => import('src/app/Components/checkout-module/checkout-module').then(m => m.CheckoutModule)
+    },
 
 
   ]},
