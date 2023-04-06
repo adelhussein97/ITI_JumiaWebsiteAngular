@@ -25,6 +25,7 @@ import { AboutusModule } from './Components/aboutus-module/aboutus.module';
 import { CategoryModule } from './Components/category-module/category.module';
 
 import { AuthGuardGuard } from './guard/auth-guard.guard';
+import { CartModule } from './Components/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthGuardGuard } from './guard/auth-guard.guard';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { AuthGuardGuard } from './guard/auth-guard.guard';
     ContactModule,
     OrderModule,
     AboutusModule,
-    CategoryModule
+    CategoryModule,
+    CartModule
 
   ],
   providers: [AuthServicesService, AuthGuardGuard],
