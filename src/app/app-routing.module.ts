@@ -35,7 +35,7 @@ const routes: Routes =
       loadChildren: () => import('src/app/Components/category-module/category.module').then(m => m.CategoryModule)
     },
     {
-      path:'checkout',
+      path:'cart/cartitem/checkout',
       loadChildren: () => import('src/app/Components/checkout-module/checkout-module').then(m => m.CheckoutModule)
     },
     {
