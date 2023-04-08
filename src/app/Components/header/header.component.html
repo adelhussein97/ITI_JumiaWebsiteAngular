@@ -23,24 +23,18 @@
     <div class="child-banner">
       <div class="container">
         <div class="row pt-2 pb-2">
-          <div class="col-5 text-main-color">
+          <div class="col-4 text-main-color">
             <i class="fa-regular ps-2 fa-star-half-stroke"></i>
             بيع جوميا
           </div>
-          <div class="col-2 text-center pb-2">
+          <div class="col-4 text-center pb-2">
             <i class="fa-brands fa-amazon-pay"></i>
           </div>
-          <div class="col-5">
-            <div class="row col-12 d-flex justify-content-end">
-              <div class="col-3 border-end">
-                <img src="../../../assets/images/arabic.png" alt="" />
-                عربي
-              </div>
-              <div class="col-3">
-                <img src="../../../assets/images/english.png" alt="" />
-                انجليزي
-              </div>
-            </div>
+          <div class="col-4">
+            <select class="w-100" (change)="changeLang($event)">
+              <option value="en">English</option>
+              <option value="ar">Arabic</option>
+            </select>
           </div>
         </div>
       </div>
