@@ -1,7 +1,132 @@
-
 <div class="container-fluied">
 
-  <div id="mypaypalbuttons"></div>
+  <div class="container">
 
-<h1>fady</h1>
-</div>
+    <div class="row billing-fields">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
+        <div class="create-ac-content bg-light-gray padding-20px-all">
+          <form>
+            <fieldset>
+              <h2 class="login-title mb-3">Billing details</h2>
+              <div class="row">
+                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                  <label for="input-firstname">Name <span class="required-f">*</span></label>
+                  <input name="firstname" value="" id="input-firstname" type="text" [(ngModel)]="ship.Name">
+                </div>
+                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                  <label for="input-lastname">Date <span class="required-f">*</span></label>
+                  <input name="lastname" value="" id="input-lastname" type="datetime-local" [(ngModel)]="ship.Date">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <div class="row">
+                <div class="form-group col-md-12 col-lg-6 col-xl-12 required">
+                  <label for="input-address-1">Address <span class="required-f">*</span></label>
+                  <input name="address_1" value="" id="input-address-1" type="text" [(ngModel)]="ship.Address">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 col-lg-6 col-xl-6">
+                  <label for="input-address-2">Area <span class="required-f">*</span></label>
+                  <input name="address_2" value="" id="input-address-2" type="text" [(ngModel)]="ship.Area">
+                </div>
+                <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
+                  <label for="input-city">City <span class="required-f">*</span></label>
+                  <input name="city" value="" id="input-city" type="text" [(ngModel)]="ship.City">
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="your-order-payment">
+          <div class="your-order">
+            <h2 class="order-title mb-4">Your Order</h2>
+
+            <div class="table-responsive-sm order-table">
+              <table class="bg-white table table-bordered table-hover text-center">
+                <thead>
+                  <tr>
+                    <th class="text-left">Product Name</th>
+                    <th>Price</th>
+                    <!-- <th>Size</th> -->
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-left">Spike Jacket</td>
+                    <td>$99</td>
+                    <!-- <td>S</td> -->
+                    <td>1</td>
+                    <td>$99</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Argon Sweater</td>
+                    <td>$199</td>
+                    <!-- <td>M</td> -->
+                    <td>2</td>
+                    <td>$298</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Babydoll Bow Dress</td>
+                    <td>$299</td>
+                    <!-- <td>XL</td> -->
+                    <td>3</td>
+                    <td>$398</td>
+                  </tr>
+                </tbody>
+                <tfoot class="font-weight-600">
+                  <tr>
+                    <td colspan="3" class="text-right">Shipping </td>
+                    <td>$50.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="text-right">Total</td>
+                    <td>$845.00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="your-payment">
+            <h2 class="payment-title mb-3">payment method</h2>
+            <div class="payment-method">
+              <div class="payment-accordion">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        paypal
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse mt-3"
+                      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div id="mypaypalbuttons"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-button-payment">
+                  <button class="btn btn-warning" value="Place order" type="submit" (click)="AddNew()" >Place order</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div id="mypaypalbuttons"></div> -->
+
+    <!-- <h1>fady</h1> -->
+  </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { render } from 'creditcardpayments/creditCardPayments'
+import { Ishipping } from 'src/app/Model/ishipping';
+import { ShippingService } from 'src/app/services/shipping.service';
 
 @Component({
   selector: 'app-paypal',
@@ -7,10 +10,12 @@ import { render } from 'creditcardpayments/creditCardPayments'
   styleUrls: ['./paypal.component.css']
 })
 export class PaypalComponent implements OnInit{
-  constructor(){
+  ship:Ishipping={} as Ishipping
+
+  constructor(private shipping:ShippingService,private router:Router){
 
   }
-  ngOnInit(): void {
+  ngOnInit() {
     render({
       id:'#mypaypalbuttons',
       currency:'USD',
@@ -19,7 +24,10 @@ export class PaypalComponent implements OnInit{
         alert("transaction successfull");
       }
     })
-  }
 
+  }
+  AddNew(){
+    this.shipping.addNewShipping(this.ship).subscribe(data=>{this.router.navigate(['/home'])})
+      }
 
 }
