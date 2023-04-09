@@ -1,0 +1,16 @@
+.pm{
+    background-color:#ff9900;
+    border-radius: 4px;
+    color: aliceblue;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    padding: 4px 16px;
+    text-transform: uppercase;
+
+}
+
+.plus_minus_Details{
+    display: flex;
+    justify-content: end;
+}
