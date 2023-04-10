@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthServicesService } from '../../services/auth-services.service';
 
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
   cartItem: number = 0;
   constructor(
     public _authServices: AuthServicesService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router:Router
   ) {
     this._authServices.cartSubject.subscribe((data) => {
       this.cartItem = data;
@@ -34,5 +36,9 @@ export class HeaderComponent implements OnInit {
   }
   changeLang(event: any) {
     this.translate.setDefaultLang(event.target.value);
+  }
+  productdetails(prdId:number){
+    //path , parameter
+  this.router.navigate(['productDetails',prdId])
   }
 }

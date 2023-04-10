@@ -32,7 +32,7 @@ export class ProductdetailsComponent implements OnInit{
       
    
      if(returnprod){
-      // this.prod=returnprod
+      //  this.prod=returnprod
      }
     else{
       alert ("Product Not Found")
