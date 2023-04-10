@@ -6,7 +6,7 @@
       <div class="collection-hero__image"><img class=" lazyload" data-src="assets/images/cat-women.jpg"
           src="../../../../assets/images/home/slider5.jpg" alt="product" title="product" /></div>
       <div class="collection-hero__title-wrapper">
-        <h1 class="collection-hero__title page-width">All Products</h1>
+        <!-- <h1 class="collection-hero__title page-width">All Products</h1> -->
       </div>
     </div>
   </div>
@@ -17,6 +17,12 @@
       <!--Sidebar-->
       <div class="col-12 col-sm-12 col-md-3 col-lg-3 sidebar filterbar">
         <div class="closeFilter d-block d-md-none d-lg-none"><i class="icon icon anm anm-times-l"></i></div>
+        <div class="product-filter mt-5">
+          <label for="category-select">Filter by Category:</label>
+          <select id="category-select" [(ngModel)]="receivedCatID" >
+            <option value= 0 selected>All Categories</option>
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          </select>
         <div class="sidebar_tags">
           <!--Categories-->
           <div class="sidebar_widget categories filter-widget">
@@ -165,7 +171,7 @@
                     <div class="mini-list-item">
                       <div class="mini-view_image">
                         <a class="grid-view-item__link" href="#">
-                          <img class="grid-view-item__image" style="heigh:20rem"
+                          <img class="grid-view-item__image" style="height:20rem"
                             src="../../../../assets/images/home/slider5.jpg" alt="" />
                         </a>
                       </div>
@@ -281,14 +287,14 @@
             <div class="row">
               <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="section-header text-center">
-                  <h2 class="h2">Featured collection</h2>
+                  <h1 class="h2">All Products</h1>
                   <p>Our most popular products based on sales</p>
                 </div>
               </div>
             </div>
             <div class="productList product-load-more">
               <!--Toolbar-->
-              <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
+              <!-- <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button> -->
               <div class="toolbar">
                 <div class="filters-toolbar-wrapper">
                   <div class="row">
@@ -301,11 +307,11 @@
                         <img src="../../../../assets/images/list.jpg" alt="List" />
                       </a>
                     </div>
-                    <div
+                    <!-- <div
                       class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
                       <span class="filters-toolbar__product-count">Showing: 22</span>
-                    </div>
-                    <div class="col-4 col-md-4 col-lg-4 text-right">
+                    </div> -->
+                    <!-- <div class="col-4 col-md-4 col-lg-4 text-right">
                       <div class="filters-toolbar__item">
                         <label for="SortBy" class="hidden">Sort</label>
                         <select name="SortBy" id="SortBy" class="filters-toolbar__input filters-toolbar__input--sort">
@@ -320,7 +326,7 @@
                         </select>
                         <input class="collection-header__default-sort" type="hidden" value="manual">
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
                 </div>
@@ -328,26 +334,44 @@
               <!--End Toolbar-->
             </div>
             <div class="grid-products">
+              <!-- <div *ngFor="let product of products">
+                <div *ngIf="selectedCategoryId === null || product.category.id === selectedCategoryId">
+                  <h2>{{ product.name }}</h2>
+                  <p>{{ product.description }}</p>
+
+                  <div class="product-images">
+                    <img *ngFor="let image of product.images" [src]="image" alt="Product Image">
+                  </div>
+                </div>
+              </div> -->
               <div class="row">
-                <div *ngFor="let product of products" class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
+                <ng-container *ngFor="let product of products">
+
+                <div *ngFor="let image of productsImage"  class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2">
+
                   <div class="grid-view_image">
                     <!-- start product image -->
-                    <a href="product-accordion.html" class="grid-view-item__link">
+
                       <!-- image -->
-                      <img class="grid-view-item__image primary  lazyload"
+                      <div>
+                        <a href=""  class="grid-view-item__link">
+                          <img (click)="prdDetails(product.id)" width="50" height="100" class="grid-view-item__image primary  lazyload"
                         data-src="assets/images/product-images/product-image1.jpg"
-                        [src]="product.prdImages" alt="image" title="product">
+                        [src]="image.url">
                       <!-- End image -->
                       <!-- Hover image -->
                       <img class="grid-view-item__image hover  lazyload"
                         data-src="assets/images/product-images/product-image1-1.jpg"
-                        src="../../../assets/images/Products/gu5.png" alt="image" title="product">
+                        [src]="image.url">
+                        </a>
+
+                      </div>
                       <!-- End hover image -->
                       <!-- product label -->
                       <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span
                           class="lbl pr-label1">new</span></div>
                       <!-- End product label -->
-                    </a>
+
                     <!-- end product image -->
                     <!--start product details -->
                     <div class="product-details hoverDetails text-center mobile">
@@ -365,30 +389,30 @@
 
                       <!-- product button -->
                       <div class="button-set">
-                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view"
+                        <!-- <a href="javascript:void(0)" title="Details" class="quick-view-popup quick-view"
                           data-toggle="modal" data-target="#content_quickview">
                           <i class="icon anm anm-search-plus-r"></i>
-                        </a>
+                        </a> -->
                         <!-- Start product button -->
-                        <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
-                          <button class="btn cartIcon btn-addto-cart" type="button" tabindex="0"><i
+                        <!-- <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                          <button class="btn cartIcon btn-addto-cart" title="Add To Cart" type="button" tabindex="0"><i
                               class="icon anm anm-bag-l"></i></button>
-                        </form>
-                        <div class="wishlist-btn">
+                        </form> -->
+                        <!-- <div class="wishlist-btn">
                           <a class="wishlist add-to-wishlist" href="wishlist.html">
                             <i class="icon anm anm-heart-l"></i>
                           </a>
-                        </div>
-                        <div class="compare-btn">
+                        </div> -->
+                        <!-- <div class="compare-btn">
                           <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
                             <i class="icon anm anm-random-r"></i>
                           </a>
-                        </div>
+                        </div> -->
                       </div>
                       <!-- end product button -->
                     </div>
                     <!-- Variant -->
-                    <ul class="swatches text-center">
+                    <!-- <ul class="swatches text-center">
                       <li class="swatch medium rounded"><img src="../../../assets/images/Products/gu9.png"
                           alt="image" /></li>
                       <li class="swatch medium rounded"><img src="../../../assets/images/Products/gu9.png"
@@ -401,11 +425,13 @@
                           alt="image" /></li>
                       <li class="swatch medium rounded"><img src="../../../assets/images/Products/gu9.png"
                           alt="image" /></li>
-                    </ul>
+                    </ul> -->
                     <!-- End Variant -->
                     <!-- End product details -->
                   </div>
+
                 </div>
+              </ng-container>
 
 
               </div>
@@ -415,11 +441,11 @@
         <!--End Featured Product-->
 
       </div>
-      <div class="infinitpaginOuter">
+      <!-- <div class="infinitpaginOuter">
         <div class="infinitpagin">
           <a href="#" class="btn loadMore">Load More</a>
         </div>
-      </div>
+      </div> -->
     </div>
     <!--End Main Content-->
   </div>
@@ -428,8 +454,8 @@
 <!--End Body Content-->
 
 <!--Main Content-->
-<div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
-  <div class="category-description">
+<!-- <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col"> -->
+  <!-- <div class="category-description">
     <h3>Category Description</h3>
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
       standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
@@ -440,11 +466,11 @@
       literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
       College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
       going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-  </div>
-  <hr>
-  <div class="productList">
+  </div> -->
+  <!-- <hr> -->
+  <!-- <div class="productList"> -->
     <!--Toolbar-->
-    <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
+    <!-- <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
     <div class="toolbar">
       <div class="filters-toolbar-wrapper">
         <div class="row">
@@ -480,492 +506,51 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
     <!--End Toolbar-->
-    <div class="list-view-items grid--view-items">
+    <!-- <div class="list-view-items grid--view-items"> -->
       <!--ListView Item-->
-      <div class="list-product list-view-item">
+      <!-- <div class="list-product list-view-item">
         <div class="list-view-item__image-column">
           <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
+             Image -->
+            <!-- <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
                 data-src="assets/images/product-images/product-image1.jpg"
-                src="assets/images/product-images/product-image1.jpg" alt="image" title="product"></a>
+                src="assets/images/product-images/product-image1.jpg" alt="image" title="product"></a> -->
             <!-- End Image -->
-          </div>
-        </div>
+          <!-- </div> -->
+        <!-- </div>
         <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Camelia Reversible Jacket</a></div>
+          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Camelia Reversible Jacket</a></div> -->
           <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
+          <!-- <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
               class="font-13 fa fa-star"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
+          </p> -->
           <!-- End Product Review -->
           <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
+          <!-- <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
             experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
+            jewelries and other types of web shops....</p> -->
           <!-- End Sort Description -->
           <!-- Price -->
-          <p class="product-price grid-view-item__meta">
+          <!-- <p class="product-price grid-view-item__meta">
             <span class="old-price">$600.00</span>
             <span class="product-price__price product-price__sale"><span class="money">$500.00</span></span>
-          </p>
+          </p> -->
           <!-- End Price -->
-          <form class="variants" action="#">
+          <!-- <form class="variants" action="#">
             <button class="btn btn--small" type="button">Select Options</button>
           </form>
         </div>
-      </div>
+      </div> -->
       <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image2.jpg"
-                src="assets/images/product-images/product-image2.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Elastic Waist Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i></p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$693.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Select Options</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image3.jpg"
-                src="assets/images/product-images/product-image3.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">3/4 Sleeve Kimono Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i></p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$500.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Select Options</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image4.jpg"
-                src="assets/images/product-images/product-image4.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Cape Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i></p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="old-price">$900.00</span>
-            <span class="product-price__price product-price__sale"><span class="money">$800.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Select Options</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image5.jpg"
-                src="assets/images/product-images/product-image5.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Paper Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="old-price">$900.00</span>
-            <span class="product-price__price product-price__sale"><span class="money">$800.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Select Options</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image17.jpg"
-                src="assets/images/product-images/product-image17.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Buttercup Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$800.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image18.jpg"
-                src="assets/images/product-images/product-image18.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Lima Shirt</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$800.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image19.jpg"
-                src="assets/images/product-images/product-image19.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Romary Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$800.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image20.jpg"
-                src="assets/images/product-images/product-image20.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Floral Sleeveless Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$380.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image21.jpg"
-                src="assets/images/product-images/product-image21.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Button Up Dress</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$400.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image22.jpg"
-                src="assets/images/product-images/product-image22.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Lexie Shirt</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$200.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image23.jpg"
-                src="assets/images/product-images/product-image23.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">One Shoulder Dress in Navy</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$1048.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image24.jpg"
-                src="assets/images/product-images/product-image24.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">Triangle Sleeveless Dress in Multi</a>
-          </div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$1048.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-      <!--ListView Item-->
-      <div class="list-product list-view-item">
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <!-- Image -->
-            <a href="product-layout-2.html"><img class="list-view-item__image blur-up lazyload"
-                data-src="assets/images/product-images/product-image25.jpg"
-                src="assets/images/product-images/product-image25.jpg" alt="image" title="product"></a>
-            <!-- End Image -->
-          </div>
-        </div>
-        <div class="list-view-item__title-column">
-          <div class="h4 grid-view-item__title"><a href="product-layout-2.html">ACB Top</a></div>
-          <!-- Product Review -->
-          <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
-              class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i>
-          </p>
-          <!-- End Product Review -->
-          <!-- Sort Description -->
-          <p>Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping
-            experience which can be used for various kinds of stores such as boutiques, bookstores, technology stores,
-            jewelries and other types of web shops....</p>
-          <!-- End Sort Description -->
-          <!-- Price -->
-          <p class="product-price grid-view-item__meta">
-            <span class="product-price__price"><span class="money">$280.00</span></span>
-          </p>
-          <!-- End Price -->
-          <form class="variants" action="#">
-            <button class="btn btn--small" type="button">Add To Cart</button>
-          </form>
-        </div>
-      </div>
-      <!--End ListView Item-->
-    </div>
+
+    <!-- </div>
   </div>
   <div class="infinitpaginOuter">
     <div class="infinitpagin">
       <a href="#" class="btn loadMore">Load More</a>
     </div>
   </div>
-</div>
+</div> -->
 <!--End Main Content-->
