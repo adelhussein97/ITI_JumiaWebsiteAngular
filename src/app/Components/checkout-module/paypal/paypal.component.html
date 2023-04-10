@@ -59,36 +59,36 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="text-left">Spike Jacket</td>
-                    <td>$99</td>
+                  <tr *ngFor="let getCartDetail of getCartDetails" >
+                    <td class="text-left">{{getCartDetail.Name}}</td>
+                    <td>{{getCartDetail.UnitPrice |currency:'EGY '}}</td>
                     <!-- <td>S</td> -->
-                    <td>1</td>
-                    <td>$99</td>
+                    <td>{{getCartDetail.Quantity}}</td>
+                    <td> {{getCartDetail.Quantity * getCartDetail.UnitPrice |currency:'EGY '}}</td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td class="text-left">Argon Sweater</td>
-                    <td>$199</td>
+                    <td>$199</td> -->
                     <!-- <td>M</td> -->
-                    <td>2</td>
+                    <!-- <td>2</td>
                     <td>$298</td>
-                  </tr>
-                  <tr>
+                  </tr> -->
+                  <!-- <tr>
                     <td class="text-left">Babydoll Bow Dress</td>
-                    <td>$299</td>
+                    <td>$299</td> -->
                     <!-- <td>XL</td> -->
-                    <td>3</td>
+                    <!-- <td>3</td>
                     <td>$398</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
                 <tfoot class="font-weight-600">
-                  <tr>
+                  <!-- <tr>
                     <td colspan="3" class="text-right">Shipping </td>
                     <td>$50.00</td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <td colspan="3" class="text-right">Total</td>
-                    <td>$845.00</td>
+                    <td>{{total|currency:'EGY '}}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -111,7 +111,8 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse mt-3"
                       aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <div id="mypaypalbuttons"></div>
+                      <!-- <div id="mypaypalbuttons"></div> -->
+                      <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                     </div>
                   </div>
                 </div>
