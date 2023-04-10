@@ -29,6 +29,7 @@ import { CategoryModule } from './Components/category-module/category.module';
 
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { CartModule } from './Components/cart/cart.module';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 export function createtranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -57,6 +58,8 @@ export function createtranslateLoader(http: HttpClient) {
     AboutusModule,
     CategoryModule,
     CartModule,
+    NgxPayPalModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

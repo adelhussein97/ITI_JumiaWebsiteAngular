@@ -8,10 +8,10 @@ export interface Iproduct {
   unitPrice: number,
   insertingDate: Date,
   brandId: number,
-  brand: string,
-  prdImages: string,
-  reviewId: number,
-  rateId: number,
-  categoryId: number,
-  category: string
+  brand?: string,
+  prdImages?: string,
+  reviewId?: number,
+  rateId?: number,
+  categoryId?: number,
+  category?: string
 }

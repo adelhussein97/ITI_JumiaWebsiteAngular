@@ -26,6 +26,11 @@ export class ProductApiService {
       `${environment.APIUrl}/Products/GetAllProducts?categoryId=${catid}`
     );
   }
+  getProductsById(pid: number): Observable<Iproduct> {
+    return this.httpClient.get<Iproduct>(
+      `${environment.APIUrl}/Products/GetProducts/${pid}`
+    );
+  }
 
   getAllProductsImages(): Observable<Iproductimage[]> {
     return this.httpClient.get<Iproductimage[]>(`${environment.APIUrl}/Products/GetAllProductsImages`);
