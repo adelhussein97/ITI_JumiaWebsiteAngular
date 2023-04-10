@@ -7,7 +7,7 @@ import { ListviewProductComponent } from './listview-product/listview-product.co
 
 const routes: Routes =[
   {path:'',redirectTo:'/product/allproducts',pathMatch:'full'},
-  {path:'productdetails',component:ProductdetailsComponent ,title:'ProductDetails'},
+  {path:'productdetails/:pid',component:ProductdetailsComponent ,title:'ProductDetails'},
   {path:'allproducts',component:AllProductsComponent,title:'AllProducts'},
   {path:'listview',component:ListviewProductComponent,title:'AllProducts'},
 
