@@ -5,17 +5,21 @@
     <div class="row billing-fields">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
         <div class="create-ac-content bg-light-gray padding-20px-all">
-          <form>
+          <form (ngSubmit)="AddNew()" #formRef="ngForm">
             <fieldset>
               <h2 class="login-title mb-3">Billing details</h2>
               <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                   <label for="input-firstname">Name <span class="required-f">*</span></label>
-                  <input name="firstname" value="" id="input-firstname" type="text" [(ngModel)]="ship.Name">
+                  <input name="firstname" #shipNameInput="ngModel" value="" id="input-firstname" type="text" [(ngModel)]="ship.Name" required pattern="[A-Za-z]{2,15}">
+                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
+                    <div *ngIf="shipNameInput.errors?.['required']" >Name is required</div>
+                    <div *ngIf="shipNameInput.errors?.['pattern']">Name is must be at least 2 character</div>
+                   </div>
                 </div>
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                   <label for="input-lastname">Date <span class="required-f">*</span></label>
-                  <input name="lastname" value="" id="input-lastname" type="datetime-local" [(ngModel)]="ship.Date">
+                  <input name="lastname" value={{date1}} id="input-lastname" type="datetime-local" [(ngModel)]="ship.Date" required>
                 </div>
               </div>
             </fieldset>
@@ -24,20 +28,60 @@
               <div class="row">
                 <div class="form-group col-md-12 col-lg-6 col-xl-12 required">
                   <label for="input-address-1">Address <span class="required-f">*</span></label>
-                  <input name="address_1" value="" id="input-address-1" type="text" [(ngModel)]="ship.Address">
+                  <input name="address_1" #shipNameInput="ngModel" value="" id="input-address-1" type="text" [(ngModel)]="ship.Address" required pattern="[A-Za-z]{2,15}">
+                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
+                    <div *ngIf="shipNameInput.errors?.['required']" >Address is required</div>
+                    <div *ngIf="shipNameInput.errors?.['pattern']">Address is must be at least 2 character</div>
+                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-xl-6">
                   <label for="input-address-2">Area <span class="required-f">*</span></label>
-                  <input name="address_2" value="" id="input-address-2" type="text" [(ngModel)]="ship.Area">
+                  <input name="address_2" value="" id="input-address-2" type="text" [(ngModel)]="ship.Area" required>
+                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
+                    <div *ngIf="shipNameInput.errors?.['required']" >Area is required</div>
+                    <!-- <div *ngIf="shipNameInput.errors?.['pattern']">Area is must be at least 2 character</div> -->
+                   </div>
                 </div>
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
                   <label for="input-city">City <span class="required-f">*</span></label>
-                  <input name="city" value="" id="input-city" type="text" [(ngModel)]="ship.City">
+                  <input name="city" value="" id="input-city" type="text" [(ngModel)]="ship.City" required>
+                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
+                    <div *ngIf="shipNameInput.errors?.['required']" >Address is required</div>
+                    <!-- <div *ngIf="shipNameInput.errors?.['pattern']">Address is must be at least 2 character</div> -->
+                   </div>
                 </div>
               </div>
             </fieldset>
+
+            <div class="order-button-payment">
+              <button class="btn btn-warning" value="Place order" type="submit" [disabled]="formRef.invalid" >Place order</button>
+            </div>
+
+            <div class="your-payment mt-3">
+              <h2 class="payment-title mb-3">payment method</h2>
+              <div class="payment-method">
+                <div class="payment-accordion">
+                  <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" [disabled]="formRef.invalid" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          paypal
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse mt-3"
+                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <!-- <div id="mypaypalbuttons"></div> -->
+                        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -59,7 +103,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let getCartDetail of getCartDetails" >
+                  <tr *ngFor="let getCartDetail of getCartDetails">
                     <td class="text-left">{{getCartDetail.Name}}</td>
                     <td>{{getCartDetail.UnitPrice |currency:'EGY '}}</td>
                     <!-- <td>S</td> -->
@@ -69,15 +113,15 @@
                   <!-- <tr>
                     <td class="text-left">Argon Sweater</td>
                     <td>$199</td> -->
-                    <!-- <td>M</td> -->
-                    <!-- <td>2</td>
+                  <!-- <td>M</td> -->
+                  <!-- <td>2</td>
                     <td>$298</td>
                   </tr> -->
                   <!-- <tr>
                     <td class="text-left">Babydoll Bow Dress</td>
                     <td>$299</td> -->
-                    <!-- <td>XL</td> -->
-                    <!-- <td>3</td>
+                  <!-- <td>XL</td> -->
+                  <!-- <td>3</td>
                     <td>$398</td>
                   </tr> -->
                 </tbody>
@@ -97,32 +141,6 @@
 
           <hr />
 
-          <div class="your-payment">
-            <h2 class="payment-title mb-3">payment method</h2>
-            <div class="payment-method">
-              <div class="payment-accordion">
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        paypal
-                      </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse mt-3"
-                      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <!-- <div id="mypaypalbuttons"></div> -->
-                      <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="order-button-payment">
-                  <button class="btn btn-warning" value="Place order" type="submit" (click)="AddNew()" >Place order</button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
