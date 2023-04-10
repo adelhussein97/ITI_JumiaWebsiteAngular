@@ -3,9 +3,9 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-lg-12 col-md-7 left" >
-            <div class="row g-0  position-relative border shadow" *ngFor="let prod of productDetailsArray">
+            <div class="row g-0  position-relative border shadow">
                 <div class="col-md-4 mb-md-0 p-md-4" >
-                    <img src="{{prod.img}}" class="w-100 mb-3">
+                    <!-- <img src="{{prod.img}}" class="w-100 mb-3"> -->
                     <hr>
                     <!-- <h6>SHARE THIS PRODUCT</h6>
                   <div>
@@ -20,9 +20,9 @@
                                 class="fa-regular fa-heart text-warning"></i></button>
                     </div>
                  
-                    <h5>{{prod.Name}}</h5>
+                    <h5>{{prod.name}}</h5>
                     <!-- <p>Brand : <a href="#">Caesar</a> | <a href="#"> Similar products from Caesar</a> </p> -->
-                    <p>{{prod.Discription}}</p>
+                    <p>{{prod.discription}}</p>
                     <div>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -33,9 +33,9 @@
                     </div>
                     <!-- <h6><span class="badge bg-warning">Buy £400 Get £200 OFF </span></h6> -->
                     <hr>
-                    <h3>EGP{{prod.UnitPrice}}</h3>
+                    <h3>EGP{{prod.unitPrice}}</h3>
                     <span class="text-decoration-line-through h6">EGP 474.00 </span><span
-                        class="text-warning ms-2 h6">{{prod.Discount}}</span>
+                        class="text-warning ms-2 h6">{{prod.discountPercent}}</span>
                     <p>+ delivery from EGP 10.83 (free delivery if order above EGP 200.00) to 6th of October</p>
                     <hr>
                     <div class="d-flex ">
@@ -48,14 +48,14 @@
                         <button type="button" class="btn btn-light text-dark border">L</button>
                         <button type="button" class="btn btn-light text-dark border disabled">XL</button>
                         <button type="button" class="btn btn-light text-dark border disabled">XXL</button> -->
-                    <span class=" h6">{{prod.IsFeatured}}</span>
+                    <span class=" h6">{{prod.isFeatured}}</span>
                         
                         <span class="plus_minus_Details">
                         <button type="button" class="pm" (click)="dec(prod)"><i class="fa fa-minus"></i></button>
 
                         <span class="mx-2"></span>
 
-                        <span>{{prod.Quantity}}</span>
+                        <span>{{prod.quantity}}</span>
 
                         <span class="mx-2"></span>
                         <button type="button" class="pm" (click)="inc(prod)"><i class="fa fa-plus"></i></button>

@@ -43,7 +43,7 @@ decQnt(Id:number,Quantity:any){
   localStorage.setItem('localCart', JSON.stringify(this.getCartDetails));
   this.loadCart();
 }
-total:number=0;
+    total:number=0;
 loadCart(){
 if(localStorage.getItem('localCart')){
   this.getCartDetails=JSON.parse(localStorage.getItem('localCart')!);

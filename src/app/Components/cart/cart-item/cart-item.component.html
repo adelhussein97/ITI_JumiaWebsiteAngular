@@ -12,7 +12,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-8 col-lg-12 main-col">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-8 main-col">
         <div *ngIf="getCartDetails">
         <form action="#" method="post" class="cart style2 ">
           <table class="col-lg-12">
@@ -21,11 +21,11 @@
                 <th class="text-center">Image</th>
                 <th class="text-center">Name</th>
                 <th class="text-center">Discount</th>
-                <th class="text-center">Discription</th>
+                <!-- <th class="text-center">Discription</th> -->
                 <th class="text-center">UnitPrice</th>
-                <th class="text-center">Brand</th>
+                <!-- <th class="text-center">Brand</th>
                 <th class="text-center">Date</th>
-                <th class="text-right">IsFeatured</th>
+                <th class="text-right">IsFeatured</th> -->
                 <th class="text-center">Quantity</th>
                 <th class="text-right">Total</th>
                 <th class="text-right"></th>
@@ -46,13 +46,13 @@
                 <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.Discount}}</span>
                 </td>
-                <td class="cart__price-wrapper cart-flex-item text-center">
+                <!-- <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.Discription}}</span>
-                </td> 
+                </td>  -->
                 <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.UnitPrice}}</span>
                 </td>
-                <td class="cart__price-wrapper cart-flex-item text-center">
+                <!-- <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.Brand}}</span>
                 </td>
                 <td class="cart__price-wrapper cart-flex-item text-center">
@@ -60,7 +60,7 @@
                 </td>
                 <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.IsFeatured}}</span>
-                </td>
+                </td> -->
                  <td class="cart__price-wrapper cart-flex-item text-center">
                   <div class="cart__qty text-center">
                     <div class="qtyField">
@@ -360,7 +360,7 @@
         </form>
       </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-4 col-lg-12 cart__footer">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
         <div class="cart-note">
           <div class="solid-border">
             <h5><label for="CartSpecialInstructions" class="cart-note__label small--text-center">Add a note to your
