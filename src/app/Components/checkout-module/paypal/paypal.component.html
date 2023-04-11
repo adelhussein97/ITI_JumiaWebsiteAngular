@@ -106,10 +106,10 @@
                 <tbody>
                   <tr *ngFor="let getCartDetail of getCartDetails">
                     <td class="text-left">{{getCartDetail.Name}}</td>
-                    <td>{{getCartDetail.UnitPrice |currency:'U '}}</td>
+                    <td>{{getCartDetail.UnitPrice |currency:'USD '}}</td>
                     <!-- <td>S</td> -->
                     <td>{{getCartDetail.Quantity}}</td>
-                    <td> {{getCartDetail.Quantity * getCartDetail.UnitPrice |currency:'EGY '}}</td>
+                    <td> {{getCartDetail.Quantity * getCartDetail.UnitPrice |currency:'USD '}}</td>
                   </tr>
                   <!-- <tr>
                     <td class="text-left">Argon Sweater</td>
@@ -133,7 +133,7 @@
                   </tr> -->
                   <tr>
                     <td colspan="3" class="text-right">Total</td>
-                    <td>{{total|currency:'EGY '}}</td>
+                    <td>{{total|currency:'USD '}}</td>
                   </tr>
                 </tfoot>
               </table>
