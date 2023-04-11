@@ -89,6 +89,8 @@ export class PaypalComponent implements OnInit {
       },
       onApprove: (data, actions) => {
         this.AddNewOrder();
+        this.AddNew();
+        this.AddNewOrderDetails();
         console.log(this.cart);
         console.log(
           'onApprove - transaction was approved, but not authorized',
