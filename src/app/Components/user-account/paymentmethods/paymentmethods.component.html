@@ -1,1 +1,27 @@
-<p>paymentmethods works!</p>
+
+
+<div class="container my-4">
+  <h2>Payment Methods</h2>
+  <button type="button" class="btn btn-primary mb-3" (click)="addPaymentMethod()">Add New Payment Method</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Number</th>
+        <th scope="col">Expiration</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paymentMethod of paymentMethods">
+        <td>{{ paymentMethod.type }}</td>
+        <td>{{ paymentMethod.number }}</td>
+        <td>{{ paymentMethod.expiration }}</td>
+        <td>
+          <button type="button" class="btn btn-link" (click)="editPaymentMethod(paymentMethod)">Edit</button>
+          <button type="button" class="btn btn-link text-danger" (click)="deletePaymentMethod(paymentMethod)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
