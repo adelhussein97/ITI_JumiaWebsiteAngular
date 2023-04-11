@@ -13,9 +13,10 @@ import { CartApiService } from 'src/app/services/cart-api.service';
   templateUrl: './paypal.component.html',
   styleUrls: ['./paypal.component.css'],
 })
-export class PaypalComponent implements OnInit {
-  ship: Ishipping = {} as Ishipping;
-  total: any = 0;
+export class PaypalComponent implements OnInit{
+  ship:Ishipping={} as Ishipping
+  total:any=0;
+  date1:Date=new Date()
   public payPalConfig?: IPayPalConfig;
   showSuccess!: any;
   cart: Icart = {} as Icart;

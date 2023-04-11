@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Iproduct } from 'src/app/Model/iproduct';
 import { AuthServicesService } from 'src/app/services/auth-services.service';
+import { ProductApiService } from 'src/app/services/product-api.service';
+import { Location } from '@angular/common'; 
 
 
 
@@ -10,48 +14,34 @@ import { AuthServicesService } from 'src/app/services/auth-services.service';
   styleUrls: ['./productdetails.component.css']
 })
 export class ProductdetailsComponent implements OnInit{
-
-  constructor(private auth:AuthServicesService)  {}
+  prod:Iproduct ={} as Iproduct;
+  currentproductid:number=0;
+  // prod:Iproduct|undefined =undefined;
+  constructor(private auth:AuthServicesService,private route: ActivatedRoute, private productService: ProductApiService,private location:Location)  {}
   ngOnInit() {
 
+    // let prodid=this.route.snapshot.paramMap.get('pid');
+    // console.log(prodid);
+    
+
+    this.currentproductid = (this.route.snapshot.paramMap.get('pid')) ?
+    Number((this.route.snapshot.paramMap.get('pid'))) : 0 ;
+
+    let returnprod = this.productService
+    .getProductsById(this.currentproductid).subscribe(data => {  this.prod=data   })
+      
+   
+     if(returnprod){
+      //  this.prod=returnprod
+     }
+    else{
+      alert ("Product Not Found")
+      this.location.back();
+    }
+  
 
   }
-productDetailsArray=[
-  {
-    Id:"1",
-    img:"../assets/images/8.jpg",
-    Name:"T-Shirt",
-    Discount:"50%",
-    Discription:"This T Matrial Is good",
-    UnitPrice:"100",
-    Date:"18/4/2023",
-    IsFeatured:"NoN",
-    Brand:"adidas",
-    Quantity:"10"
-  },  {
-    Id:"3",
-    img:"../assets/images/6.jpg",
-    Name:"T-Shirt",
-    Discount:"50%",
-    Discription:"This T Matrial Is good",
-    UnitPrice:"300",
-    Date:"18/4/2023",
-    IsFeatured:"NoN",
-    Brand:"adidas",
-    Quantity:"10"
-  },  {
-    Id:"4",
-    img:"../assets/images/7.jpg",
-    Name:"T-Shirt",
-    Discount:"50%",
-    Discription:"This T Matrial Is good",
-    UnitPrice:"200",
-    Date:"18/4/2023",
-    IsFeatured:"NoN",
-    Brand:"adidas",
-    Quantity:"10"
-  }
-];
+
 inc(prod:any){
   // console.log(prod.Quantity);
   if(prod.Quantity != 10)
