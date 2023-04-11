@@ -13,6 +13,7 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 export class PaypalComponent implements OnInit{
   ship:Ishipping={} as Ishipping
   total:any=0;
+  date1:Date=new Date()
   public payPalConfig?: IPayPalConfig;
   showSuccess!:any
 
