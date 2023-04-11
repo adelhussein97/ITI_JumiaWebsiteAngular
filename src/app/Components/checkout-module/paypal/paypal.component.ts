@@ -3,7 +3,11 @@ import { Router } from '@angular/router';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { Ishipping } from 'src/app/Model/ishipping';
 import { ShippingService } from 'src/app/services/shipping.service';
-import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import {
+  IPayPalConfig,
+  ICreateOrderRequest,
+  IOnClickCallbackActions,
+} from 'ngx-paypal';
 import { Icart } from 'src/app/Model/icart';
 import { IcartItems } from 'src/app/Model/icart-items';
 import { CartApiService } from 'src/app/services/cart-api.service';
@@ -13,14 +17,15 @@ import { CartApiService } from 'src/app/services/cart-api.service';
   templateUrl: './paypal.component.html',
   styleUrls: ['./paypal.component.css'],
 })
-export class PaypalComponent implements OnInit{
-  ship:Ishipping={} as Ishipping
-  total:any=0;
-  date1:Date=new Date()
+export class PaypalComponent implements OnInit {
+  ship: Ishipping = {} as Ishipping;
+  total: any = 0;
+  date1: Date = new Date();
   public payPalConfig?: IPayPalConfig;
   showSuccess!: any;
   cart: Icart = {} as Icart;
-  cartitems: IcartItems[] = [];
+  cartitems: any = [];
+  getCartDetails: any = [];
 
   constructor(
     private shipping: ShippingService,
@@ -83,6 +88,8 @@ export class PaypalComponent implements OnInit{
         layout: 'vertical',
       },
       onApprove: (data, actions) => {
+        this.AddNewOrder();
+        console.log(this.cart);
         console.log(
           'onApprove - transaction was approved, but not authorized',
           data,
@@ -114,6 +121,8 @@ export class PaypalComponent implements OnInit{
       },
       onClick: (data, actions) => {
         console.log('onClick', data, actions);
+
+        this.cart.CardTypeId = 1;
       },
     };
   }
@@ -137,7 +146,7 @@ export class PaypalComponent implements OnInit{
   }
 
   AddNewOrderDetails() {
-    for (var item of this.cartitems) {
+    for (var item of this.getCartDetails) {
       this.cartapi.AddOrderDetails(item).subscribe({
         next: (data) => {
           console.log(data);
@@ -150,11 +159,15 @@ export class PaypalComponent implements OnInit{
     }
   }
 
-  getCartDetails: any = [];
   CartDetails() {
     if (localStorage.getItem('localCart')) {
       this.getCartDetails = JSON.parse(localStorage.getItem('localCart')!);
       console.log(this.getCartDetails);
+      for (var item of this.getCartDetails) {
+        this.cart.Discount += item.Discount;
+      }
+      this.cart.CartStatusId = 2;
+      this.cart.CardTypeId = 1;
     }
   }
 
@@ -166,6 +179,7 @@ export class PaypalComponent implements OnInit{
       this.total = this.getCartDetails.reduce(function (acc: any, val: any) {
         return acc + val.UnitPrice * val.Quantity;
       }, 0);
+      this.cart.TotalCost = this.total;
     }
   }
 }
