@@ -5,6 +5,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { MainComponent } from './Components/main/main.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -39,6 +40,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('src/app/Components/aboutus-module/aboutus.module').then(
             (m) => m.AboutusModule
+          ),
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('src/app/Components/user-account/user-account.module').then(
+            (m) => m.UserAccountModule
           ),
       },
       {
