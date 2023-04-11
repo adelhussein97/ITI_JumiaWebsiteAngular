@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Icategory } from 'src/app/Model/icategory';
 import { Iproduct } from 'src/app/Model/iproduct';
@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.css']
 })
-export class AllProductsComponent implements OnInit {
+export class AllProductsComponent implements OnInit, OnChanges {
 
  products: Iproduct[] = [];
  categories: Icategory[] = [];
  productsImage: Iproductimage[] = [];
 
- receivedCatID: number = 0;
+ @Input() receivedCatID: number = 0;
 
  constructor(private route: ActivatedRoute, private productService: ProductApiService, private router: Router) { }
 
@@ -51,7 +51,7 @@ export class AllProductsComponent implements OnInit {
     }
 
     prdDetails(prdId:number){
-      this.router.navigate(['products', prdId]);
+      this.router.navigate(['/product/productdetails/', prdId]);
 
     }
 

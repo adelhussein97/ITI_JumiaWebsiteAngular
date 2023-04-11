@@ -1,0 +1,25 @@
+
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12 text-center d-flex justify-content-center">
+      <div class="card mb-4">
+        <div class="card-body">
+          <img src="user-profile-picture.jpg" alt="User Profile Picture" class="img-fluid rounded-circle mb-3">
+          <h4 class="card-title">John Doe</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a [routerLink]="['profile/orders']">Orders</a></li>
+          <li class="list-group-item"><a [routerLink]="['/profile/addressbook']">Address Book</a></li>
+          <li class="list-group-item"><a [routerLink]="['/profile/payment']">Payment Methods</a></li>
+          <li class="list-group-item"><a [routerLink]="['/profile/editprofile']">Edit Profile</a></li>
+          <li class="list-group-item"><a [routerLink]="['/profile/changepassword']">Change Password</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div> -->
+  </div>
+</div>
