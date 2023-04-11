@@ -1,5 +1,5 @@
 export interface Ishipping {
-  id:number,
+  Id:number,
   Date:Date,
   Name:string,
   Area:string,

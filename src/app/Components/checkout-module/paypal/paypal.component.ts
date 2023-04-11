@@ -27,6 +27,9 @@ export class PaypalComponent implements OnInit {
   cartitems: any = [];
   getCartDetails: any = [];
 
+
+
+
   constructor(
     private shipping: ShippingService,
     private router: Router,
@@ -42,6 +45,7 @@ export class PaypalComponent implements OnInit {
     //     alert("transaction successfull");
     //   }
     // })
+
     this.initConfig();
     this.CartDetails();
     this.loadCart();
@@ -92,12 +96,14 @@ export class PaypalComponent implements OnInit {
         this.AddNew();
         this.AddNewOrderDetails();
         console.log(this.cart);
+        console.log(this.cartitems);
+
         console.log(
           'onApprove - transaction was approved, but not authorized',
           data,
           actions
         );
-        actions.disable();
+
         actions.order.get().then((details: any) => {
           console.log(
             'onApprove - you can get full order details inside onApprove: ',
@@ -148,7 +154,7 @@ export class PaypalComponent implements OnInit {
   }
 
   AddNewOrderDetails() {
-    for (var item of this.getCartDetails) {
+    for (var item of this.cartitems) {
       this.cartapi.AddOrderDetails(item).subscribe({
         next: (data) => {
           console.log(data);
@@ -165,11 +171,20 @@ export class PaypalComponent implements OnInit {
     if (localStorage.getItem('localCart')) {
       this.getCartDetails = JSON.parse(localStorage.getItem('localCart')!);
       console.log(this.getCartDetails);
-      for (var item of this.getCartDetails) {
-        this.cart.Discount += item.Discount;
-      }
+      // for (var item of this.getCartDetails) {
+        this.cart.Discount = 25;
+      // }
       this.cart.CartStatusId = 2;
       this.cart.CardTypeId = 1;
+      for(var item of this.getCartDetails ){
+        this.cartitems.push({cartId:1,productId:13, TotalCost:item.UnitPrice * item.Quantity,Quantity:item.Quantity,Price:item.UnitPrice})
+      //   this.cartitems.cartId=1
+      // //  this.cartitems.productId= item.Id
+      // this.cartitems.productId= 13
+      //   this.cartitems.TotalCost=item.UnitPrice * item.Quantity
+      //   this.cartitems.Quantity=item.Quantity
+      //   this.cartitems.Price=item.UnitPrice
+      }
     }
   }
 

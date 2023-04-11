@@ -55,9 +55,9 @@
               </div>
             </fieldset>
 
-            <div class="order-button-payment">
+            <!-- <div class="order-button-payment">
               <button class="btn btn-warning" value="Place order" type="submit" [disabled]="formRef.invalid" >Place order</button>
-            </div>
+            </div> -->
 
             <div class="your-payment mt-3">
               <h2 class="payment-title mb-3">payment method</h2>
@@ -66,7 +66,7 @@
                   <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" [disabled]="formRef.invalid" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed btn btn-warning" [disabled]="formRef.invalid" type="button" data-bs-toggle="collapse"
                           data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                           paypal
                         </button>
@@ -92,7 +92,7 @@
             <h2 class="order-title mb-4">Your Order</h2>
 
             <div class="table-responsive-sm order-table">
-              
+
               <table class="bg-white table table-bordered table-hover text-center">
                 <thead>
                   <tr>

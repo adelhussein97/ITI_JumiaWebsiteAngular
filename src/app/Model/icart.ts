@@ -3,4 +3,5 @@ export interface Icart {
   TotalCost: number;
   CardTypeId: number;
   CartStatusId: number;
+  
 }

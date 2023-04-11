@@ -19,6 +19,6 @@ export class ShippingService {
   }
 
   addNewShipping(ship:Ishipping):Observable<Ishipping>{
-    return this.httpClient.post<Ishipping>(`${environment.APIUrl}/Shippings`,JSON.stringify(ship),this.httpHeader)
+    return this.httpClient.post<Ishipping>(`${environment.APIUrl}/Shippings/AddShipping`,JSON.stringify(ship),this.httpHeader)
   }
 }

@@ -1,9 +1,10 @@
 export interface IcartItems {
-  cartid: number,
-  productid: number,
-  quantity:number,
-  price:number,
-  totalprice:number
+
+  cartId: number,
+  productId: number,
+  Quantity:number,
+  Price:number,
+  TotalCost:number
 
 
 }

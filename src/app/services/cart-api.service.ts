@@ -20,17 +20,19 @@ export class CartApiService {
 
   GetLastCartId(): Observable<number> {
     return this.httpclient.get<number>(
-      `${environment.APIUrl}/Cart/GetLastCardId`
+      `${environment.APIUrl}/Carts/GetLastCardId`
     );
   }
   AddNewOrder(cart: Icart): Observable<Icart> {
     return this.httpclient.post<Icart>(
-      `${environment.APIUrl}/Cart/AddCart`,
+      `${environment.APIUrl}/Carts/AddCart`,
       JSON.stringify(cart),
       this.httpHeader
     );
   }
+
   AddOrderDetails(cartitems: IcartItems): Observable<IcartItems> {
+    //debugger
     return this.httpclient.post<IcartItems>(
       `${environment.APIUrl}/CartItems/AddCartItem`,
       JSON.stringify(cartitems),
