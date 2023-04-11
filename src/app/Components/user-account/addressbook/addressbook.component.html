@@ -1,1 +1,27 @@
-<p>addressbook works!</p>
+
+
+<div class="container my-4">
+  <h2>Address Book</h2>
+  <button type="button" class="btn btn-primary mb-3" (click)="addAddress()">Add New Address</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let address of addresses">
+        <td>{{ address.name }}</td>
+        <td>{{ address.address }}</td>
+        <td>{{ address.phone }}</td>
+        <td>
+          <button type="button" class="btn btn-link" (click)="editAddress(address)">Edit</button>
+          <button type="button" class="btn btn-link text-danger" (click)="deleteAddress(address)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
