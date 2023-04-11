@@ -23,7 +23,6 @@ import { ProductModule } from './Components/product-module/product.module';
 import { IdentityModule } from './Components/identity-module/identity.module';
 import { CheckoutModule } from './Components/checkout-module/checkout-module';
 import { ContactModule } from './Components/contact-module/contact.module';
-import { OrderModule } from './Components/order-module/order.module';
 import { AboutusModule } from './Components/aboutus-module/aboutus.module';
 import { CategoryModule } from './Components/category-module/category.module';
 
@@ -54,7 +53,6 @@ export function createtranslateLoader(http: HttpClient) {
     IdentityModule,
     CheckoutModule,
     ContactModule,
-    OrderModule,
     AboutusModule,
     CategoryModule,
     CartModule,
