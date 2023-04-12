@@ -4,6 +4,7 @@ import { Iproduct } from 'src/app/Model/iproduct';
 import { AuthServicesService } from 'src/app/services/auth-services.service';
 import { ProductApiService } from 'src/app/services/product-api.service';
 import { Location } from '@angular/common'; 
+import { Iproductimage } from 'src/app/Model/iproductimage';
 
 
 
@@ -15,7 +16,13 @@ import { Location } from '@angular/common';
 })
 export class ProductdetailsComponent implements OnInit{
   prod:Iproduct ={} as Iproduct;
+  imgurl:Iproductimage[] =[];
+
   currentproductid:number=0;
+  currentproductimgid:number=0;
+
+
+
   // prod:Iproduct|undefined =undefined;
   constructor(private auth:AuthServicesService,private route: ActivatedRoute, private productService: ProductApiService,private location:Location)  {}
   ngOnInit() {
@@ -26,19 +33,28 @@ export class ProductdetailsComponent implements OnInit{
 
     this.currentproductid = (this.route.snapshot.paramMap.get('pid')) ?
     Number((this.route.snapshot.paramMap.get('pid'))) : 0 ;
-
+    
     let returnprod = this.productService
     .getProductsById(this.currentproductid).subscribe(data => {  this.prod=data   })
+    
+    let returnprodimg = this.productService
+    .getProductImageById(this.currentproductimgid).subscribe(data => {  this.imgurl=data })
       
-   
-     if(returnprod){
+    if(returnprod){
       //  this.prod=returnprod
+    }
+    else{
+      alert ("Product Not Found")
+      this.location.back();
+    }
+   
+    if(returnprodimg){
+      //  this.imgurl=returnprod
      }
     else{
       alert ("Product Not Found")
       this.location.back();
     }
-  
 
   }
 

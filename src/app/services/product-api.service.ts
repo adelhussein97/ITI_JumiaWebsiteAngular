@@ -36,6 +36,9 @@ export class ProductApiService {
     return this.httpClient.get<Iproductimage[]>(`${environment.APIUrl}/Products/GetAllProductsImages`);
   }
 
+  getProductImageById(pid: number): Observable<Iproductimage[]> {
+    return this.httpClient.get<Iproductimage[]>(`${environment.APIUrl}/Products/GetProductImages/${pid}`);
+  }
 
   // getProductsByCategory(categoryId: number) {
   //   return this.httpClient.get(`${environment.APIUrl}/Categories/GetProductsByCategoryId/{{categoryId}}`);
