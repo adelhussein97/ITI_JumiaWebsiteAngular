@@ -72,13 +72,13 @@
                     <a
                       class="dropdown-item d-flex justify-content-start"
                       routerLink="/product/productdetails/:pid"
-                      
+
                       routerLinkActive="active"
                     >
                       تفاصيل المنتجات</a
                     >
                   </li> -->
-              
+
                   <li class="m-2">
                     <a
                       class="dropdown-item d-flex justify-content-start"
@@ -164,6 +164,16 @@
                         انشاء حساب
                       </a>
                     </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex justify-content-start"
+                        routerLink="/user/userprofile"
+                        routerLinkActive="active"
+                      >
+                        <i class="fa-regular fa-user ms-2"></i>
+                        اعدادات الحساب
+                      </a>
+                    </li>
                     <li (click)="_authServices.LogOut()">
                       <a
                         class="dropdown-item d-flex justify-content-start"
@@ -230,12 +240,10 @@
                     class="nav-link"
                     aria-current="page"
                     routerLink="/cart/cartitem"
-
-                    routerLinkActive="active">
-                 
-                    <i class="fa-solid fa-cart-plus">
-                    </i>
-                    <div class="cart_value ">
+                    routerLinkActive="active"
+                  >
+                    <i class="fa-solid fa-cart-plus"> </i>
+                    <div class="cart_value">
                       {{cartItem}}
                     </div>
 

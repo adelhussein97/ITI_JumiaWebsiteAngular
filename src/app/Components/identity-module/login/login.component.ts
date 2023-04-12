@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   login_User() {
     this._auth.LogInUser(this.login_User_data).subscribe(
       (Res: any) => {
-        console.log(Res.roles);
+        localStorage.setItem('UserId', Res.id);
         localStorage.setItem('token', Res.token);
         this.Router.navigate(['/home']);
       },

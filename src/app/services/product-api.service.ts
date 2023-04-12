@@ -7,18 +7,21 @@ import { Iproductimage } from '../Model/iproductimage';
 import { Icategory } from '../Model/icategory';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductApiService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getAllProducts(): Observable<Iproduct[]> {
-    return this.httpClient.get<Iproduct[]>(`${environment.APIUrl}/Products/GetAllProducts`);
+    return this.httpClient.get<Iproduct[]>(
+      `${environment.APIUrl}/Products/GetAllProducts`
+    );
   }
 
   getAllCategories(): Observable<Icategory[]> {
-    return this.httpClient.get<Icategory[]>(`${environment.APIUrl}/Categories/Getcategories`);
+    return this.httpClient.get<Icategory[]>(
+      `${environment.APIUrl}/Categories/Getcategories`
+    );
   }
 
   getProductsByCatId(catid: number): Observable<Iproduct[]> {
@@ -28,21 +31,17 @@ export class ProductApiService {
   }
   getProductsById(pid: number): Observable<Iproduct> {
     return this.httpClient.get<Iproduct>(
-      `${environment.APIUrl}/Products/GetProducts/${pid}`
+      `${environment.APIUrl}/Products/GetProduct/${pid}`
     );
   }
 
-  getAllProductsImages(): Observable<Iproductimage[]> {
-    return this.httpClient.get<Iproductimage[]>(`${environment.APIUrl}/Products/GetAllProductsImages`);
+  getAllProductsImages(id: any): Observable<Iproductimage[]> {
+    return this.httpClient.get<Iproductimage[]>(
+      `${environment.APIUrl}/Products/GetProductImages/${id}`
+    );
   }
-
 
   // getProductsByCategory(categoryId: number) {
   //   return this.httpClient.get(`${environment.APIUrl}/Categories/GetProductsByCategoryId/{{categoryId}}`);
   // }
-
-
-
-
-
 }

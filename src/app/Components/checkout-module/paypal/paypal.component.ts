@@ -27,9 +27,6 @@ export class PaypalComponent implements OnInit {
   cartitems: any = [];
   getCartDetails: any = [];
 
-
-
-
   constructor(
     private shipping: ShippingService,
     private router: Router,
@@ -172,18 +169,25 @@ export class PaypalComponent implements OnInit {
       this.getCartDetails = JSON.parse(localStorage.getItem('localCart')!);
       console.log(this.getCartDetails);
       // for (var item of this.getCartDetails) {
-        this.cart.Discount = 25;
+      this.cart.Discount = 25;
       // }
       this.cart.CartStatusId = 2;
+      this.cart.ApplicationUserId = JSON.parse(localStorage.getItem('UserId')!);
       this.cart.CardTypeId = 1;
-      for(var item of this.getCartDetails ){
-        this.cartitems.push({cartId:1,productId:13, TotalCost:item.UnitPrice * item.Quantity,Quantity:item.Quantity,Price:item.UnitPrice})
-      //   this.cartitems.cartId=1
-      // //  this.cartitems.productId= item.Id
-      // this.cartitems.productId= 13
-      //   this.cartitems.TotalCost=item.UnitPrice * item.Quantity
-      //   this.cartitems.Quantity=item.Quantity
-      //   this.cartitems.Price=item.UnitPrice
+      for (var item of this.getCartDetails) {
+        this.cartitems.push({
+          cartId: this.cartapi.GetLastCartId(),
+          productId: item.Id,
+          TotalCost: item.UnitPrice * item.Quantity,
+          Quantity: item.Quantity,
+          Price: item.UnitPrice,
+        });
+        //   this.cartitems.cartId=1
+        // //  this.cartitems.productId= item.Id
+        // this.cartitems.productId= 13
+        //   this.cartitems.TotalCost=item.UnitPrice * item.Quantity
+        //   this.cartitems.Quantity=item.Quantity
+        //   this.cartitems.Price=item.UnitPrice
       }
     }
   }

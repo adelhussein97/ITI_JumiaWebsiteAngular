@@ -19,9 +19,7 @@ export class CartApiService {
   }
 
   GetLastCartId(): Observable<number> {
-    return this.httpclient.get<number>(
-      `${environment.APIUrl}/Carts/GetLastCardId`
-    );
+    return this.httpclient.get<number>(`${environment.APIUrl}/Carts/GetLastId`);
   }
   AddNewOrder(cart: Icart): Observable<Icart> {
     return this.httpclient.post<Icart>(

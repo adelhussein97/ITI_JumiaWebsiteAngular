@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { MainComponent } from './Components/main/main.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
-
+import { AuthGuardGuard } from './guard/auth-guard.guard';
 
 const routes: Routes = [
   {
@@ -62,12 +62,20 @@ const routes: Routes = [
           import('src/app/Components/checkout-module/checkout-module').then(
             (m) => m.CheckoutModule
           ),
+        canActivate: [AuthGuardGuard],
       },
       {
         path: 'cart',
         loadChildren: () =>
           import('src/app/Components/cart/cart.module').then(
             (m) => m.CartModule
+          ),
+      },
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('src/app/Components/user-account/user-account.module').then(
+            (m) => m.UserAccountModule
           ),
       },
     ],
