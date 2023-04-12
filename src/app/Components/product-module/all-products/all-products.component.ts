@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Icategory } from 'src/app/Model/icategory';
 import { Iproduct } from 'src/app/Model/iproduct';
@@ -16,7 +16,7 @@ export class AllProductsComponent implements OnInit, OnChanges {
   categories: Icategory[] = [];
   productsImage: Iproductimage[] = [];
 
-  @Input() receivedCatID: number = 0;
+  receivedCatID: number=0;
   @Input() productId: number = 0;
 
   constructor(
@@ -40,17 +40,26 @@ export class AllProductsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+
     if (this.receivedCatID == 0) {
       this.productService.getAllProducts().subscribe((data1) => {
         this.products = data1;
+        console.log(data1);
       });
     } else {
       this.productService
         .getProductsByCatId(this.receivedCatID)
         .subscribe((data) => {
           this.products = data;
+          console.log(data);
+
         });
     }
+
+  }
+
+  getproductsByCatIdd(catid: number){
+
   }
 
   prdDetails(prdId: number) {
