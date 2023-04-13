@@ -1,5 +1,3 @@
-
-
 <div class="container my-4">
   <h2>Orders</h2>
   <table class="table">
@@ -13,11 +11,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of orders">
-        <td>{{ order.id }}</td>
-        <td>{{ order.date }}</td>
-        <td>{{ order.total | currency }}</td>
-        <td>{{ order.status }}</td>
+      <tr *ngFor="let order of carts">
+        <td>{{ order.Id }}</td>
+        <td>{{ order.datecart }}</td>
+        <td>{{ order.Discount }}</td>
+        <td>{{ order.TotalCost | currency }}</td>
+        <div (ng-switch)="order.CartStatusId">
+          <td (ng-switch-when)="0">Completed</td>
+          <td (ng-switch-when)="1">Pending</td>
+          <td (ng-switch-when)="2">Open</td>
+          <td (ng-switch-when)="3">AwaitingApproval</td>
+          <td (ng-switch-when)="3">Closed</td>
+        </div>
         <td>
           <button type="button" class="btn btn-link" (click)="viewOrderDetails(order)">View</button>
           <button type="button" class="btn btn-link" (click)="editOrder(order)">Edit</button>
