@@ -28,15 +28,17 @@
         </div>
         <div class="product-filter mt-5">
           <label for="category-select">Filter by Category:</label>
-          <select id="category-select" [(ngModel)]="receivedCatID">
+          <select id="category-select" [(ngModel)]="selectedCatID">
             <option value="0" selected>All Categories</option>
             <option *ngFor="let category of categories" [value]="category.id"
               >{{ category.name }}</option
             >
           </select>
+          <p>The selected value is {{ selectedCatID }}</p>
+          <app-category [receivedCatID]="selectedCatID" ></app-category>
           <div class="sidebar_tags">
             <!--Categories-->
-            <div class="sidebar_widget categories filter-widget">
+            <!-- <div class="sidebar_widget categories filter-widget">
               <div class="widget-title">
                 <h2>Categories</h2>
               </div>
@@ -80,10 +82,10 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <!--Categories-->
             <!--Price Filter-->
-            <div class="sidebar_widget filterBox filter-widget">
+            <!-- <div class="sidebar_widget filterBox filter-widget">
               <div class="widget-title">
                 <h2>Price</h2>
               </div>
@@ -113,10 +115,10 @@
                   </div>
                 </div>
               </form>
-            </div>
+            </div> -->
             <!--End Price Filter-->
             <!--Size Swatches-->
-            <div class="sidebar_widget filterBox filter-widget size-swacthes">
+            <!-- <div class="sidebar_widget filterBox filter-widget size-swacthes">
               <div class="widget-title">
                 <h2>Size</h2>
               </div>
@@ -133,10 +135,10 @@
                   <li><span class="swacth-btn">XS</span></li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <!--End Size Swatches-->
             <!--Color Swatches-->
-            <div class="sidebar_widget filterBox filter-widget">
+            <!-- <div class="sidebar_widget filterBox filter-widget">
               <div class="widget-title">
                 <h2>Color</h2>
               </div>
@@ -158,10 +160,10 @@
                 <span class="swacth-btn dimGrey"></span>
                 <span class="swacth-btn khaki"></span>
               </div>
-            </div>
+            </div> -->
             <!--End Color Swatches-->
             <!--Brand-->
-            <div class="sidebar_widget filterBox filter-widget">
+            <!-- <div class="sidebar_widget filterBox filter-widget">
               <div class="widget-title">
                 <h2>Brands</h2>
               </div>
@@ -197,10 +199,10 @@
                   >
                 </li>
               </ul>
-            </div>
+            </div> -->
             <!--End Brand-->
             <!--Popular Products-->
-            <div class="sidebar_widget">
+            <!-- <div class="sidebar_widget">
               <div class="widget-title">
                 <h2>Popular Products</h2>
               </div>
@@ -300,15 +302,15 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!--End Popular Products-->
             <!--Banner-->
-            <div class="sidebar_widget static-banner">
+            <!-- <div class="sidebar_widget static-banner">
               <img src="assets/images/side-banner-2.jpg" alt="" />
-            </div>
+            </div> -->
             <!--Banner-->
             <!--Information-->
-            <div class="sidebar_widget">
+            <!-- <div class="sidebar_widget">
               <div class="widget-title">
                 <h2>Information</h2>
               </div>
@@ -319,10 +321,10 @@
                   customers to your store.
                 </p>
               </div>
-            </div>
+            </div> -->
             <!--end Information-->
             <!--Product Tags-->
-            <div class="sidebar_widget">
+            <!-- <div class="sidebar_widget">
               <div class="widget-title">
                 <h2>Product Tags</h2>
               </div>
@@ -452,7 +454,7 @@
                 </ul>
                 <span class="btn btn--small btnview">View all</span>
               </div>
-            </div>
+            </div> -->
             <!--end Product Tags-->
           </div>
         </div>
@@ -477,6 +479,7 @@
                 <div class="section-header text-center">
                   <h1 class="h2">All Products</h1>
                   <p>Our most popular products based on sales</p>
+                  <p>the value {{selectedCatID}}</p>
                 </div>
               </div>
             </div>
@@ -549,7 +552,7 @@
               <div class="row product-images">
                 <ng-container *ngFor="let product of products">
                   <div
-                    *ngFor="let image of productsImage"
+
                     class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2"
                   >
                     <div class="grid-view_image">
@@ -564,7 +567,7 @@
                             height="100"
                             class="grid-view-item__image primary lazyload"
                             data-src="assets/images/product-images/product-image1.jpg"
-                            [src]="image.url"
+                            [src]=""
                           />
                           <!-- End image -->
                           <!-- Hover image -->
@@ -572,7 +575,7 @@
                             (click)="prdDetails(product.id)"
                             class="grid-view-item__image hover lazyload"
                             data-src="assets/images/product-images/product-image1-1.jpg"
-                            [src]="image.url"
+                            [src]=""
                           />
                         </a>
                       </div>

@@ -24,9 +24,10 @@ export class ProductApiService {
     );
   }
 
-  getProductsByCatId(catid: number): Observable<Iproduct[]> {
+  getProductsByCatId(catid:number): Observable<Iproduct[]> {
+
     return this.httpClient.get<Iproduct[]>(
-      `${environment.APIUrl}/Products/GetAllProducts?categoryId=${catid}`
+      `${environment.APIUrl}/Categories/GetProductsByCategoryId/${catid}`
     );
   }
   getProductsById(pid: number): Observable<Iproduct> {
