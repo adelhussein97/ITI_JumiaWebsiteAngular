@@ -171,12 +171,12 @@ export class PaypalComponent implements OnInit {
       // for (var item of this.getCartDetails) {
       this.cart.Discount = 25;
       // }
-      this.cart.CartStatusId = 2;
-      this.cart.ApplicationUserId = JSON.parse(localStorage.getItem('UserId')!);
+      // this.cart.CartStatusId = 2;
+      // this.cart.ApplicationUserId = JSON.parse(localStorage.getItem('UserId')!);
       this.cart.CardTypeId = 1;
       for (var item of this.getCartDetails) {
         this.cartitems.push({
-          cartId: this.cartapi.GetLastCartId(),
+          // cartId: this.cartapi.GetLastCartId(),
           productId: item.Id,
           TotalCost: item.UnitPrice * item.Quantity,
           Quantity: item.Quantity,

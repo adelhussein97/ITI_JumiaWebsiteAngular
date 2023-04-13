@@ -1,7 +1,7 @@
 
 import { CommonModule } from '@angular/common';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
-import { AllProductsComponent } from './all-products/all-products.component';
+import { AllProductsComponent } from '../all-products/all-products.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ListviewProductComponent } from './listview-product/listview-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,9 +17,9 @@ const routes: Routes =[
 
 @NgModule({
   declarations: [
-    ProductdetailsComponent,
-    AllProductsComponent,
-    ListviewProductComponent,
+    // ProductdetailsComponent,
+    // AllProductsComponent,
+    // ListviewProductComponent,
 
   ],
   imports: [
