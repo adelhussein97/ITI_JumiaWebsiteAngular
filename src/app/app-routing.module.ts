@@ -23,13 +23,13 @@ const routes: Routes = [
       {path:'category',component:CategoryComponent,title:'category Page'},
       {path:'listview',component:ListviewProductComponent,title:'AllProducts'},
 
-      // {
-      //   path: 'product',
-      //   loadChildren: () =>
-      //     import('src/app/Components/product-module/product.module').then(
-      //       (m) => m.ProductModule
-      //     ),
-      // },
+      {
+        path: 'product',
+        loadChildren: () =>
+          import('src/app/Components/product-module/product.module').then(
+            (m) => m.ProductModule
+          ),
+      },
       {
         path: '',
         loadChildren: () =>
