@@ -1,0 +1,62 @@
+<div id="page-content">
+
+  <div class="container collection-header">
+    <div class="collection-hero">
+      <div class="collection-hero__image">
+        <img
+          class="lazyload"
+          data-src="assets/images/cat-women.jpg"
+          src="../../../../assets/images/home/slider5.jpg"
+          alt="product"
+          title="product"
+        />
+      </div>
+      <div class="collection-hero__title-wrapper">
+        <!-- <h1 class="collection-hero__title page-width">All Products</h1> -->
+      </div>
+    </div>
+  </div>
+<div class="container mt-2">
+  <div class="row">
+ <!--Sidebar-->
+ <div class="col-12 col-sm-12 col-md-3 col-lg-3 sidebar filterbar">
+
+  <div class="closeFilter d-block d-md-none d-lg-none">
+    <i class="icon icon anm anm-times-l"></i>
+  </div>
+  <div class="product-filter mt-5">
+    <label for="category-select">Filter by Category:</label>
+    <select id="category-select"  [(ngModel)]="selectedCatID">
+      <option value="0" selected>All Categories</option>
+      <option *ngFor="let category of categories" [value]="category.id"
+        >{{ category.name }}</option
+      >
+    </select>
+    <p>The selected value is {{ selectedCatID }}</p>
+
+    <div class="sidebar_tags">
+      <!--Categories-->
+
+      <!--end Product Tags-->
+    </div>
+  </div>
+  <!--End Sidebar-->
+  <!--Main Content-->
+
+  <!--Featured Product-->
+
+  <!--End Featured Product-->
+
+
+</div>
+<div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
+  <div class="product-rows section">
+    <div class="container">
+      <app-all-products [receivedCatID]="selectedCatID" ></app-all-products>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>

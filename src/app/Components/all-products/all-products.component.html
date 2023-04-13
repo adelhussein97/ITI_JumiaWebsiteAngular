@@ -1,0 +1,166 @@
+<!--Body Content-->
+<div id="page-content">
+  <!--Collection Banner-->
+ 
+  <!--End Collection Banner-->
+
+  <div class="container mt-2">
+    <div class="row">
+
+
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="section-header text-center">
+                  <h1 class="h2">All Products</h1>
+                  <p>Our most popular products based on sales</p>
+                  <p>the value {{receivedCatID}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="productList product-load-more">
+              <!--Toolbar-->
+              <!-- <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button> -->
+              <div class="toolbar">
+                <div class="filters-toolbar-wrapper">
+                  <div class="row">
+                    <div
+                      class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center"
+                    >
+                      <a
+                        routerLink="/product/allproducts"
+                        title="Grid View"
+                        class="change-view change-view--active"
+                      >
+                        <img
+                          src="../../../../assets/images/grid.jpg"
+                          alt="Grid"
+                        />
+                      </a>
+                      <a
+                        routerLink="/product/listview"
+                        title="List View"
+                        class="change-view"
+                      >
+                        <img
+                          src="../../../../assets/images/list.jpg"
+                          alt="List"
+                        />
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!--End Toolbar-->
+            </div>
+            <div class="grid-products">
+              <!-- <div *ngFor="let product of products">
+              <div *ngIf="selectedCategoryId === null || product.category.id === selectedCategoryId">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+
+                <div class="product-images">
+                  <img *ngFor="let image of product.images" [src]="image" alt="Product Image">
+                </div>
+              </div>
+            </div> -->
+              <div class="row product-images">
+                <ng-container *ngFor="let product of products">
+                  <div
+
+                    class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2"
+                  >
+                    <div class="grid-view_image">
+                      <!-- start product image -->
+
+                      <!-- image -->
+                      <div>
+                        <a href="" class="grid-view-item__link">
+                          <img
+                            (click)="prdDetails(product.id)"
+                            width="50"
+                            height="100"
+                            class="grid-view-item__image primary lazyload"
+                            data-src="assets/images/product-images/product-image1.jpg"
+                            [src]=""
+                          />
+                          <!-- End image -->
+                          <!-- Hover image -->
+                          <img
+                            (click)="prdDetails(product.id)"
+                            class="grid-view-item__image hover lazyload"
+                            data-src="assets/images/product-images/product-image1-1.jpg"
+                            [src]=""
+                          />
+                        </a>
+                      </div>
+                      <!-- End hover image -->
+                      <!-- product label -->
+                      <div class="product-labels rectangular">
+                        <span class="lbl on-sale">-16%</span>
+                        <span class="lbl pr-label1">new</span>
+                      </div>
+                      <!-- End product label -->
+
+                      <!-- end product image -->
+                      <!--start product details -->
+                      <div
+                        class="product-details hoverDetails text-center mobile"
+                      >
+                        <!-- product name -->
+                        <div class="product-name">
+                          <a (click)="prdDetails(product.id)"
+                            >{{product.name}}</a
+                          >
+                        </div>
+                        <!-- End product name -->
+                        <!-- product price -->
+                        <div class="product-price">
+                          <!-- <span class="old-price">$500.00</span> -->
+                          <span class="price"
+                            >{{product.unitPrice|currency:"EGP":"symbol"}}</span
+                          >
+                        </div>
+                        <!-- End product price -->
+
+                        <!-- product button -->
+                        <div class="button-set">
+                          <!-- <a href="javascript:void(0)" title="Details" class="quick-view-popup quick-view"
+                        data-toggle="modal" data-target="#content_quickview">
+                        <i class="icon anm anm-search-plus-r"></i>
+                      </a> -->
+                          <!-- Start product button -->
+                          <!-- <form class="variants add" action="#" onclick="window.location.href='cart.html'" method="post">
+                        <button class="btn cartIcon btn-addto-cart" title="Add To Cart" type="button" tabindex="0"><i
+                            class="icon anm anm-bag-l"></i></button>
+                      </form> -->
+                          <!-- <div class="wishlist-btn">
+                        <a class="wishlist add-to-wishlist" href="wishlist.html">
+                          <i class="icon anm anm-heart-l"></i>
+                        </a>
+                      </div> -->
+                          <!-- <div class="compare-btn">
+                        <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
+                          <i class="icon anm anm-random-r"></i>
+                        </a>
+                      </div> -->
+                        </div>
+                        <!-- end product button -->
+                      </div>
+                      <!-- Variant -->
+
+                      <!-- End Variant -->
+                      <!-- End product details -->
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!--End Main Content-->
+
+
+  <!--End Body Content-->
+</div>

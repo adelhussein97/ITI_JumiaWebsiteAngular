@@ -5,6 +5,10 @@ import { HomeComponent } from './Components/home/home.component';
 import { MainComponent } from './Components/main/main.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
+import { ProductdetailsComponent } from './Components/product-module/productdetails/productdetails.component';
+import { CategoryComponent } from './Components/category/category.component';
+import { AllProductsComponent } from './Components/all-products/all-products.component';
+import { ListviewProductComponent } from './Components/product-module/listview-product/listview-product.component';
 
 const routes: Routes = [
   {
@@ -13,14 +17,19 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default Page if empty
       { path: 'home', component: HomeComponent, title: 'Home Page' },
+      {path:'productdetails/:pid',component:ProductdetailsComponent ,title:'ProductDetails'},
+      {path:'allproducts',component:AllProductsComponent,title:'AllProducts'},
 
-      {
-        path: 'product',
-        loadChildren: () =>
-          import('src/app/Components/product-module/product.module').then(
-            (m) => m.ProductModule
-          ),
-      },
+      {path:'category',component:CategoryComponent,title:'category Page'},
+      {path:'listview',component:ListviewProductComponent,title:'AllProducts'},
+
+      // {
+      //   path: 'product',
+      //   loadChildren: () =>
+      //     import('src/app/Components/product-module/product.module').then(
+      //       (m) => m.ProductModule
+      //     ),
+      // },
       {
         path: '',
         loadChildren: () =>
