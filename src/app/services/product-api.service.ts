@@ -24,7 +24,7 @@ export class ProductApiService {
     );
   }
 
-  getProductsByCatId(catid: any): Observable<Iproduct[]> {
+  getProductsByCatId(catid:number): Observable<Iproduct[]> {
 
     return this.httpClient.get<Iproduct[]>(
       `${environment.APIUrl}/Categories/GetProductsByCategoryId/${catid}`
