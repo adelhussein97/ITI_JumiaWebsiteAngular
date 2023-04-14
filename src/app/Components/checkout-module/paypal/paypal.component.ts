@@ -210,7 +210,7 @@ removeAll(){
         (localStorage.getItem('localCart') as any) || []
       );
       this.total = this.getCartDetails.reduce(function (acc: any, val: any) {
-        return acc + val.UnitPrice * val.Quantity;
+        return acc + val.unitprice * val.quantity;
       }, 0);
       this.cart.TotalCost = this.total;
     }

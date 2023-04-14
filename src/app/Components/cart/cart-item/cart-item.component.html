@@ -73,7 +73,7 @@
                         <a
                           class="qtyBtn minus"
                           href="javascript:void(0);"
-                          (click)="decQnt(getCartDetail.Id , getCartDetail.Quantity)"
+                          (click)="decQnt(getCartDetail.id , getCartDetail.quantity)"
                           ><i class="icon icon-minus"></i
                         ></a>
                         <!-- <input class="cart__qty-input qty" type="text" name="updates[]" id="qty"
@@ -82,14 +82,14 @@
                         <a
                           class="qtyBtn plus"
                           href="javascript:void(0);"
-                          (click)="incQnt(getCartDetail.Id , getCartDetail.Quantity)"
+                          (click)="incQnt(getCartDetail.id , getCartDetail.quantity)"
                           ><i class="icon icon-plus"></i
                         ></a>
                       </div>
                     </div>
                   </td>
                   <td class="text-right small--hide cart-price text-center">
-                    {{getCartDetail.Quantity * getCartDetail.UnitPrice |
+                    {{getCartDetail.quantity * getCartDetail.unitprice |
                     number}}
                   </td>
                   <td class="text-center small--hide">
@@ -173,7 +173,7 @@
             >
             <span
               class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"
-              ><span class="money">$735.00</span></span
+              ><span class="money">{{total}}</span></span
             >
           </div>
           <div class="cart__shipping">
