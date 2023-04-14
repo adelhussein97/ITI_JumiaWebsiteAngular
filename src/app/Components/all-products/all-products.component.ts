@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChange,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Icategory } from 'src/app/Model/icategory';
 import { Iproduct } from 'src/app/Model/iproduct';
@@ -37,42 +44,35 @@ export class AllProductsComponent implements OnInit, OnChanges {
       this.categories = data;
       console.log(data);
     });
-    this.productService
-      .getAllProductsImages(this.productId)
-      .subscribe((data) => {
-        this.productsImage = data;
-        console.log(data);
-      });
+    // this.productService
+    //   .getAllProductsImages(this.productId)
+    //   .subscribe((data) => {
+    //     this.productsImage = data;
+    //     console.log(data);
+    //   });
 
+    // if (this.selectedCatID==0) {
+    //     this.productService.getAllProducts().subscribe((data) => {
+    //       this.products = data;
+    //       console.log(data);
+    //     });
+    //   } else {
+    //     this.productService
+    //       .getProductsByCatId(this.selectedCatID)
+    //       .subscribe((data) => {
+    //         this.products = data;
+    //         console.log(data);
+    //         console.log(this.selectedCatID);
 
-      // if (this.selectedCatID==0) {
-      //     this.productService.getAllProducts().subscribe((data) => {
-      //       this.products = data;
-      //       console.log(data);
-      //     });
-      //   } else {
-      //     this.productService
-      //       .getProductsByCatId(this.selectedCatID)
-      //       .subscribe((data) => {
-      //         this.products = data;
-      //         console.log(data);
-      //         console.log(this.selectedCatID);
-
-
-      //       });
-      //   }
-
-
-
-
-
+    //       });
+    //   }
   }
 
   ngOnChanges(): void {
-console.log('hello');
+    console.log('hello');
 
-    if (this.receivedCatID==0) {
-      this.productService.getAllProducts().subscribe((data) => {
+    if (this.receivedCatID == 0) {
+      this.productService.GetProductsWithImgs().subscribe((data) => {
         this.products = data;
         console.log(data);
       });
@@ -83,11 +83,8 @@ console.log('hello');
           this.products = data;
           console.log(data);
           console.log(this.receivedCatID);
-
-
         });
     }
-
 
     // if (this.receivedCatID==0) {
     //   this.productService.getAllProducts().subscribe((data) => {
@@ -103,7 +100,6 @@ console.log('hello');
 
     //     });
     // }
-
   }
 
   prdDetails(prdId: number) {
@@ -114,6 +110,4 @@ console.log('hello');
   getProductByID(prodId: number): Iproduct | undefined {
     return this.products.find((prd) => prd.id == prodId);
   }
-
-  
 }

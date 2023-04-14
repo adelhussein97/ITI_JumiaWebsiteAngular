@@ -9,14 +9,18 @@
             class="img-fluid rounded-circle mb-3"
           />
 
-          <h4 class="card-title">John Doe</h4>
+          <h5 class="card-title d-flex">
+            <div class="m-auto">
+              {{USerData.firstname}} {{USerData.lastname}}
+            </div>
+          </h5>
           <p class="card-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            From: {{USerData.fullAddress}}
           </p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <a [routerLink]="['/profile/orders']">Orders</a>
+            <a [routerLink]="['/profile/MyOrders']">Orders</a>
           </li>
           <li class="list-group-item">
             <a [routerLink]="['/profile/addressbook']">Address Book</a>

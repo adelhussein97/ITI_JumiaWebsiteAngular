@@ -1,21 +1,66 @@
-
-
 <div class="container my-4">
   <h2>Edit Profile</h2>
-  <form>
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
-    </div>
-    <button type="button" class="btn btn-primary mr-3" (click)="saveChanges()">Save Changes</button>
-    <button type="button" class="btn btn-secondary" (click)="cancelChanges()">Cancel</button>
+  <form (submit)="updateName()">
+    <label for="name">Email : </label>
+
+    <input
+      [(ngModel)]="USerData.email"
+      value="USerData.email"
+      disabled
+      class="w-50 bg-secondary text-light"
+      type="text"
+      id="name"
+      name="Email"
+      [(ngModel)]="Email"
+    />
+    <label for="name">First Name:</label>
+    <input
+      [(ngModel)]="USerData.firstname"
+      value="USerData.firstname"
+      class="w-50"
+      type="text"
+      id="name"
+      name="firstName"
+      [(ngModel)]="firstName"
+    />
+    <label for="name">Last Name:</label>
+    <input
+      [(ngModel)]="USerData.lastname"
+      value="USerData.lastname"
+      class="w-50"
+      type="text"
+      id="name"
+      name="LastName"
+      [(ngModel)]="LastName"
+    />
+    <label for="name">Adress:</label>
+    <input
+      [(ngModel)]="USerData.fullAddress"
+      value="USerData.fullAddress"
+      class="w-50"
+      type="text"
+      id="name"
+      name="FullAddress"
+      [(ngModel)]="FullAddress"
+    />
+    <label for="name">City:</label>
+    <input
+      class="w-50"
+      type="text"
+      id="name"
+      name="City"
+      [(ngModel)]="USerData.city"
+      value="USerData.city"
+      [ngModel]="city"
+    />
+
+    <button
+      (click)="sucess()"
+      id="sucess"
+      type="submit"
+      class="btn btn-primary mt-3"
+    >
+      Update Profile
+    </button>
   </form>
 </div>

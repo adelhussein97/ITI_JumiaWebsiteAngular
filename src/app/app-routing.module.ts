@@ -86,6 +86,7 @@ const routes: Routes = [
           import('src/app/Components/user-account/user-account.module').then(
             (m) => m.UserAccountModule
           ),
+        canActivate: [AuthGuardGuard],
       },
     ],
   },

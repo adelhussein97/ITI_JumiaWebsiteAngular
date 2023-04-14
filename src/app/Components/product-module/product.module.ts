@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { AllProductsComponent } from '../all-products/all-products.component';
@@ -7,26 +6,32 @@ import { ListviewProductComponent } from './listview-product/listview-product.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-const routes: Routes =[
-  {path:'',redirectTo:'/product/allproducts',pathMatch:'full'},
-  {path:'productdetails/:pid',component:ProductdetailsComponent ,title:'ProductDetails'},
-  {path:'allproducts',component:AllProductsComponent,title:'AllProducts'},
-  {path:'listview',component:ListviewProductComponent,title:'AllProducts'},
-
-]
+const routes: Routes = [
+  { path: '', redirectTo: '/product/allproducts', pathMatch: 'full' },
+  {
+    path: 'productdetails/:pid',
+    component: ProductdetailsComponent,
+    title: 'ProductDetails',
+  },
+  {
+    path: 'allproducts',
+    component: AllProductsComponent,
+    title: 'AllProducts',
+  },
+  {
+    path: 'listview',
+    component: ListviewProductComponent,
+    title: 'AllProducts',
+  },
+];
 
 @NgModule({
   declarations: [
     // ProductdetailsComponent,
     // AllProductsComponent,
     // ListviewProductComponent,
-
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ProductModule { }
+export class ProductModule {}
