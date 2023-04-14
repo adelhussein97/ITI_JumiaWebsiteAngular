@@ -58,6 +58,7 @@
         <div class="row product-images">
           <ng-container *ngFor="let product of products">
             <div
+              *ngIf="product.imageurl!=null"
               class="col-6 col-sm-6 col-md-4 col-lg-4 item grid-view-item style2"
             >
               <div class="grid-view_image">
