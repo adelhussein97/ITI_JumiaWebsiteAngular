@@ -86,7 +86,9 @@
                 <!-- End hover image -->
                 <!-- product label -->
                 <div class="product-labels rectangular">
-                  <span class="lbl on-sale">-16%</span>
+                  <span *ngIf="product.discountpercent!=0" class="lbl on-sale"
+                    >{{product.discountpercent}}</span
+                  >
                   <span class="lbl pr-label1">new</span>
                 </div>
                 <!-- End product label -->
