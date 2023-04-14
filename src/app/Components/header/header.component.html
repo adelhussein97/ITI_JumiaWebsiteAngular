@@ -24,12 +24,9 @@
       <div class="container">
         <div class="row pt-2 pb-2">
           <div class="col-4 text-main-color">
-            <i class="fa-regular ps-2 fa-star-half-stroke"></i>
             بيع جوميا
           </div>
-          <div class="col-4 text-center pb-2">
-            <i class="fa-brands fa-amazon-pay"></i>
-          </div>
+          <div class="col-4 text-center pb-2"></div>
           <div class="col-4">
             <select class="w-100" (change)="changeLang($event)">
               <option value="en">English</option>
@@ -49,7 +46,7 @@
         <div class="row w-100">
           <div class="col-3">
             <div class="row">
-              <div class="col-1 nav-item dropdown ms-3 d-none d-lg-flex">
+              <div class="col-1 nav-item dropdown ms-3 d-flex">
                 <a
                   class="nav-link"
                   href="#"
@@ -59,7 +56,7 @@
                 >
                   <i class="fa-solid fa-bars"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end mt-3">
+                <ul class="dropdown-menu dropdown-menu-start mt-3">
                   <li class="m-2">
                     <a
                       class="dropdown-item d-flex justify-content-start"
@@ -88,7 +85,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="col text-main-color">
+              <div class="col text-main-color d-none d-md-block">
                 <a routerLink="/home" class="text-main-color">
                   <i class="fa-regular ps-2 fa-star-half-stroke ms-2"></i>
                   JUMIA</a
@@ -97,7 +94,7 @@
             </div>
           </div>
           <div class="col-5">
-            <div>
+            <div class="d-none d-md-block">
               <div class="input-group">
                 <span class="input-group-text" id="addon-wrapping"
                   ><i class="fa-solid fa-magnifying-glass"></i
@@ -114,8 +111,8 @@
                 </button>
               </div>
               <button
-                class="navbar-toggler"
                 type="button"
+                class="navbar-toggler"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
