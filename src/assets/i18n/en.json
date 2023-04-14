@@ -55,5 +55,12 @@
   "iaw": "I agree with the terms and conditions",
   "che": "Checkout",
   "sat": "Shipping and taxes calculated at checkout",
-  "enjoy": " Enjoy Offers "
+  "enjoy": " Enjoy Offers ",
+  "Contact Info":"Contact Info",
+  "ITI SVU, 4th block, Qena City.":"ITI SVU, 4th block, Qena City.",
+  "EmailAddress":"Email Address",
+  "Write Your Name Here":"Write Your Name Here",
+  "Example textarea":"Example textarea",
+  "Write Your Text":"Write Your Text",
+  "Submit":"Submit"
 }

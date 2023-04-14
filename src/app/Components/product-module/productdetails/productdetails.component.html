@@ -64,7 +64,8 @@
 
                 <span class="mx-2"></span>
 
-                <span>{{prod.quantity}}</span>
+                <input style="width: 5rem;text-align: center;" 
+                 type="number" value="1" min="1" max="{{prod.quantity}}"/>
 
                 <span class="mx-2"></span>
                 <button type="button" class="pm" (click)="inc(prod)">

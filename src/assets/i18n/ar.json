@@ -55,5 +55,12 @@
   "iaw": "أوافق على الشروط و الاحكام",
   "che": "الدفع",
   "sat": "الشحن و الضرائب محسوبة عند الدفع",
-  "enjoy": "استمتع بعروض التقصيط"
+  "enjoy": "استمتع بعروض التقصيط",
+  "Contact Info":"معلومات الاتصال",
+  "ITI SVU, 4th block, Qena City.":"ITI SVU ، بلوك 4 ، مدينة قنا",
+   "EmailAddress":"عنوان البريد الالكتروني",
+   "Write Your Name Here":"اكتب اسمك هنا",
+   "Example textarea":"مثال نصي",
+   "Write Your Text":"اكتب نصك",
+   "Submit":"تاكيد"
 }
