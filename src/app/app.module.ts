@@ -65,6 +65,7 @@ export function createtranslateLoader(http: HttpClient) {
     // CategoryModule,
     CartModule,
     NgxPayPalModule,
+    TranslateModule,
 
     TranslateModule.forRoot({
       loader: {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Icart } from 'src/app/Model/icart';
+import { Itrackorder } from 'src/app/Model/itrackorder';
 import { CartApiService } from 'src/app/services/cart-api.service';
 
 @Component({
@@ -8,15 +8,17 @@ import { CartApiService } from 'src/app/services/cart-api.service';
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
-  carts: Icart[] = [];
+  carts: Itrackorder[] = [];
   userId: any = '';
   constructor(private cartsApi: CartApiService) {}
   ngOnInit(): void {
     this.userId = localStorage.getItem('UserId')?.toString();
 
     this.cartsApi.GetCartsByUserId(this.userId).subscribe((data) => {
-      this.carts = data;
+      this.carts= data;
     });
+
+    console.log(this.carts)
   }
   // orders = [
   //   { id: '123', date: '2022-04-10', total: 100.00, status: 'Shipped' },
