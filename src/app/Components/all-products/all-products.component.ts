@@ -72,7 +72,7 @@ export class AllProductsComponent implements OnInit, OnChanges {
     console.log('hello');
 
     if (this.receivedCatID == 0) {
-      this.productService.getAllProducts().subscribe((data) => {
+      this.productService.GetProductsWithImgs().subscribe((data) => {
         this.products = data;
         console.log(data);
       });
