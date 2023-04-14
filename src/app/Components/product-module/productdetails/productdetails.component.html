@@ -58,22 +58,17 @@
               <!-- <span class=" h6">{{prod.isFeatured}}</span> -->
 
               <span class="plus_minus_Details">
-                <button type="button" class="pm" (click)="dec(prod)">
+                <button type="button" class="pm" (click)="dec()">
                   <i class="fa fa-minus"></i>
                 </button>
 
                 <span class="mx-2"></span>
 
-                <input
-                  style="width: 5rem; text-align: center;"
-                  type="number"
-                  value="1"
-                  min="1"
-                  max="{{prod.quantity}}"
-                />
+                <input style="width: 5rem;text-align: center;"
+                 type="number" value="1" min="1" [max]="prod.quantity" [(ngModel)]="quantity" />
 
                 <span class="mx-2"></span>
-                <button type="button" class="pm" (click)="inc(prod)">
+                <button type="button" class="pm" (click)="inc()">
                   <i class="fa fa-plus"></i>
                 </button>
               </span>
@@ -81,7 +76,7 @@
             <button
               class="btn btn-warning w-100 mt-3 text-light"
               type="button"
-              (click)="addCart(prod)"
+              (click)="addCart()"
             >
               <i class="fa-solid fa-cart-plus"></i>ADD To Cart
             </button>

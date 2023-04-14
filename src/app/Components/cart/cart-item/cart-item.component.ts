@@ -20,9 +20,9 @@ export class CartItemComponent implements OnInit {
     }
   }
 
-  incQnt(Id: number, quantity: any) {
+  incQnt(id: number, quantity: any) {
     for (let i = 0; i < this.getCartDetails.length; i++) {
-      if (this.getCartDetails[i].Id === Id) {
+      if (this.getCartDetails[i].id === id) {
         if (quantity != 10)
           this.getCartDetails[i].quantity = parseInt(quantity) + 1;
       }
@@ -30,9 +30,9 @@ export class CartItemComponent implements OnInit {
     localStorage.setItem('localCart', JSON.stringify(this.getCartDetails));
     this.loadCart();
   }
-  decQnt(Id: number, quantity: any) {
+  decQnt(id: number, quantity: any) {
     for (let i = 0; i < this.getCartDetails.length; i++) {
-      if (this.getCartDetails[i].Id === Id) {
+      if (this.getCartDetails[i].id === id) {
         if (quantity != 1)
           this.getCartDetails[i].quantity = parseInt(quantity) - 1;
       }

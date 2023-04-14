@@ -59,38 +59,48 @@ export class ProductdetailsComponent implements OnInit {
     //   this.location.back();
     // }
   }
+   quantity = 1;
+  inc() {
+  // quantity = 1 ;
 
-  inc(prod: any) {
     // console.log(prod.Quantity);
-    if (prod.quantity != 10) prod.quantity += 1;
+     //if (prod.quantity != null) prod.quantity += 1;
+     if(this.prod.quantity > this.quantity)
+    // else
+    this.quantity++;
+    console.log(this.prod.quantity);
+
   }
 
-  dec(prod: any) {
+  dec() {
     // console.log(prod.Quantity);
-    if (prod.quantity != 1) {
-      prod.quantity -= 1;
+    // if (prod.quantity != 1) {
+    //   prod.quantity -= 1;
+    // }
+    if (this.quantity > 1) {
+      this.quantity--;
     }
   }
   itemcart: any = [];
-  addCart(category: any) {
+  addCart() {
     let cartDataNull = localStorage.getItem('localCart');
     if (cartDataNull == null) {
       let storeDataGet: any = [];
-      storeDataGet.push(category);
+      storeDataGet.push(this.prod);
       localStorage.setItem('localCart', JSON.stringify(storeDataGet));
     } else {
-      var id = category.id;
+      var id = this.prod.id;
       let index: number = -1;
       this.itemcart = JSON.parse(localStorage.getItem('localCart')!);
 
       for (let i = 0; i < this.itemcart.length; i++) {
-        if (parseInt(id) === parseInt(this.itemcart[i].id)) {
-          this.itemcart[i].Quantity = category.Quantity;
+        if (id === parseInt(this.itemcart[i].id)) {
+          this.itemcart[i].quantity = this.prod.quantity;
           index = i;
           break;
         }
         if (index == -1) {
-          this.itemcart.push(category);
+          this.itemcart.push(this.prod);
           localStorage.setItem('localCart', JSON.stringify(this.itemcart));
         } else {
           localStorage.setItem('localCart', JSON.stringify(this.itemcart));
