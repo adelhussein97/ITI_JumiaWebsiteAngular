@@ -24,7 +24,10 @@
       <div class="container">
         <div class="row pt-2 pb-2">
           <div class="col-4 text-main-color">
-            بيع جوميا
+
+            <i class="fa-regular ps-2 fa-star-half-stroke"></i>
+            {{'sellon'|translate}}
+
           </div>
           <div class="col-4 text-center pb-2"></div>
           <div class="col-4">
@@ -62,7 +65,7 @@
                       class="dropdown-item d-flex justify-content-start"
                       routerLink="/category"
                       routerLinkActive="active"
-                      >المنتجات</a
+                      >{{'products'|translate}}</a
                     >
                   </li>
                   <!-- <li class="m-2">
@@ -80,7 +83,7 @@
                     <a
                       class="dropdown-item d-flex justify-content-start"
                       href="#"
-                      >إلغاء طلبي</a
+                      >{{'cancelorder'|translate}}</a
                     >
                   </li>
                 </ul>
@@ -88,7 +91,7 @@
               <div class="col text-main-color d-none d-md-block">
                 <a routerLink="/home" class="text-main-color">
                   <i class="fa-regular ps-2 fa-star-half-stroke ms-2"></i>
-                  JUMIA</a
+                  {{'jumia'|translate}}</a
                 >
               </div>
             </div>
@@ -102,7 +105,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="البحث عن منتجات ، اصناف"
+                  placeholder="{{'search'|translate}}"
                   aria-label="Example text with button addon"
                   aria-describedby="button-addon1"
                 />
@@ -135,7 +138,7 @@
                     aria-expanded="false"
                   >
                     <i class="fa-regular fa-user"></i>
-                    الحســاب
+                    {{'account'|translate}}
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end m-2">
                     <li class="btn btn-warning m-2">
@@ -144,7 +147,7 @@
                         routerLink="/login"
                         routerLinkActive="active"
                         *ngIf="!_authServices.loggedIn()"
-                        >تسجيل الدخول</a
+                        >{{'sign'|translate}}</a
                       >
                     </li>
                     <li>
@@ -158,7 +161,7 @@
                         *ngIf="!_authServices.loggedIn()"
                       >
                         <i class="fa-regular fa-user ms-2"></i>
-                        انشاء حساب
+                        {{'create'|translate}}
                       </a>
                     </li>
                     <li>
@@ -169,7 +172,7 @@
                         *ngIf="_authServices.loggedIn()"
                       >
                         <i class="fa-regular fa-user ms-2"></i>
-                        اعدادات الحساب
+                        {{'settings'|translate}}
                       </a>
                     </li>
                     <li (click)="_authServices.LogOut()">
@@ -194,7 +197,7 @@
                     aria-expanded="false"
                   >
                     <i class="fa-regular fa-circle-question"></i>
-                    مســاعدة
+                    {{'help'|translate}}
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li class="m-2">
@@ -202,14 +205,14 @@
                         class="dropdown-item d-flex justify-content-start"
                         routerLink="/contacts/contact"
                         routerLinkActive="active"
-                        >مركز المساعدة</a
+                        >{{'helpc'|translate}}</a
                       >
                     </li>
                     <li class="m-2">
                       <a
                         class="dropdown-item d-flex justify-content-start"
                         href="#"
-                        >المساعدة في طلبك</a
+                        >{{'helpon'|translate}}</a
                       >
                     </li>
 
@@ -217,7 +220,7 @@
                       <a
                         class="dropdown-item d-flex justify-content-start"
                         href="#"
-                        >إلغاء طلبي</a
+                        >{{'cancelorder'|translate}}</a
                       >
                     </li>
                     <li class="m-2">
@@ -226,7 +229,7 @@
                         class="dropdown-item d-flex justify-content-start"
                         routerLink="/AboutUss/AboutUs"
                         routerLinkActive="active"
-                        >نبذه عنا</a
+                        >{{'about'|translate}}</a
                       >
                       <!-- <a class="nav-link" routerLink="/AboutUs" routerLinkActive="active">About Us</a> -->
                     </li>
@@ -245,7 +248,7 @@
                       {{cartItem}}
                     </div>
 
-                    سلة التسوق
+                   {{'cart'|translate}}
                   </a>
                 </li>
               </ul>
