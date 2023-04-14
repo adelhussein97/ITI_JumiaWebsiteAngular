@@ -242,13 +242,19 @@
                     aria-current="page"
                     routerLink="/cart/cartitem"
                     routerLinkActive="active"
-                  >
-                    <i class="fa-solid fa-cart-plus"> </i>
-                    <div class="cart_value">
+                  > <button type="button" class="btn  position-relative">
+                    <i class="fa-solid fa-cart-plus"> </i> {{'cart'|translate}}
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                       {{cartItem}}
-                    </div>
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </button>
 
-                   {{'cart'|translate}}
+                    <!-- <div class="cart_value">
+
+                    </div> -->
+
+
                   </a>
                 </li>
               </ul>
