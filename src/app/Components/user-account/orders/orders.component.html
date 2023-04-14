@@ -7,16 +7,16 @@
         <th scope="col">Date</th>
         <th scope="col">Total</th>
         <th scope="col">Status</th>
-        <th scope="col">Actions</th>
+
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let order of carts">
-        <td>{{ order.Id }}</td>
-        <td>{{ order.datecart }}</td>
-        <td>{{ order.Discount }}</td>
-        <td>{{ order.TotalCost | currency }}</td>
-        <div (ng-switch)="order.CartStatusId">
+        <td>{{ order.id }}</td>
+        <td>{{ order.paymentDate }}</td>
+        <td>{{ order.totalCost | currency }}</td>
+
+        <div (ng-switch)="order.cartStatusId">
           <td (ng-switch-when)="0">Completed</td>
           <td (ng-switch-when)="1">Pending</td>
           <td (ng-switch-when)="2">Open</td>
