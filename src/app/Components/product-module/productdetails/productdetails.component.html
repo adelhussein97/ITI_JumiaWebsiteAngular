@@ -13,8 +13,8 @@
                   </div> -->
         </div>
 
-        <div class="row">
-          <div class="col-md-8 p-4 ps-md-0">
+        <div class="row ps-3">
+          <div class="col-12 col-lg-8 p-4 ps-md-0">
             <div class="d-flex">
               <h5 class="mt-0 col-11">
                 <span class="badge bg-secondary">official store</span>
@@ -64,8 +64,13 @@
 
                 <span class="mx-2"></span>
 
-                <input style="width: 5rem;text-align: center;" 
-                 type="number" value="1" min="1" max="{{prod.quantity}}"/>
+                <input
+                  style="width: 5rem; text-align: center;"
+                  type="number"
+                  value="1"
+                  min="1"
+                  max="{{prod.quantity}}"
+                />
 
                 <span class="mx-2"></span>
                 <button type="button" class="pm" (click)="inc(prod)">
@@ -89,7 +94,7 @@
                   <p><a href="#"> <i class="fa-solid fa-shield-halved text-warning me-2"></i>You can now
                           charge your electricity card easily from your phone </a></p> -->
           </div>
-          <div class="col-md-4 p-4 ps-md-0">
+          <div class="col-12 col-lg-4 p-4 ps-md-0">
             <img class="w-100 h-100" [src]="prod.imageurl" alt="" />
           </div>
         </div>
