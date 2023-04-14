@@ -4,7 +4,7 @@
   <div class="page section-header text-center">
     <div class="page-title">
       <div class="wrapper">
-        <h1 class="page-width">Your cart</h1>
+        <h1 class="page-width">{{'yc'|translate}}</h1>
       </div>
     </div>
   </div>
@@ -18,16 +18,16 @@
             <table class="col-lg-12">
               <thead class="cart__row cart__header">
                 <tr>
-                  <th class="text-center">Image</th>
-                  <th class="text-center">Name</th>
-                  <th class="text-center">Discount</th>
+                  <th class="text-center">{{'image'|translate}}</th>
+                  <th class="text-center">{{'name'|translate}}</th>
+                  <th class="text-center">{{'discount'|translate}}</th>
                   <!-- <th class="text-center">Discription</th> -->
-                  <th class="text-center">UnitPrice</th>
+                  <th class="text-center">{{'unp'|translate}}</th>
                   <!-- <th class="text-center">Brand</th>
                 <th class="text-center">Date</th>
                 <th class="text-right">IsFeatured</th> -->
-                  <th class="text-center">Quantity</th>
-                  <th class="text-right">Total</th>
+                  <th class="text-center">{{'qu'|translate}}</th>
+                  <th class="text-right">{{'total'|translate}}</th>
                   <th class="text-right"></th>
 
                   <!-- <th class="action">&nbsp;</th> -->
@@ -102,7 +102,7 @@
                 <tr>
                   <td colspan="6" class="text-left">
                     <h3>
-                      <strong class="mx-1">Total Price:</strong>EGP {{total}}
+                      <strong class="mx-1">{{'tp'|translate}}:</strong>{{'egp'|translate}} {{total}}
                     </h3>
                   </td>
                   <!-- <td colspan="3" class="text-right"><button type="submit" name="update" class="btn--link cart-update"><i
@@ -114,7 +114,7 @@
                       class="btn btn-danger"
                       (click)="removeAll()"
                     >
-                      Remove All Cart
+                    {{'rac'|translate}}
                     </button>
                   </td>
                 </tr>
@@ -122,21 +122,21 @@
             </table>
 
             <div class="currencymsg">
-              We processes all orders in USD. While the content of your cart is
+              <!-- We processes all orders in USD. While the content of your cart is
               currently displayed in USD, the checkout will use USD at the most
-              current exchange rate.
+              current exchange rate. -->
             </div>
             <hr />
 
             <div id="shipping-calculator" class="mb-4">
-              <h5 class="small--text-center">Get shipping estimates</h5>
+              <h5 class="small--text-center">{{'gse'|translate}}</h5>
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 actionRow text-center">
                   <div>
                     <input
                       type="button"
                       class="btn btn--secondary get-rates"
-                      value="Calculate shipping"
+                      value="{{'cs'|translate}}"
                     />
                   </div>
                 </div>
@@ -152,7 +152,7 @@
               <label
                 for="CartSpecialInstructions"
                 class="cart-note__label small--text-center"
-                >Add a note to your order</label
+                >{{'aan'|translate}}</label
               >
             </h5>
             <textarea
@@ -165,7 +165,7 @@
         <div class="solid-border">
           <div class="row">
             <span class="col-12 col-sm-6 cart__subtotal-title"
-              ><strong>Subtotal</strong></span
+              ><strong>{{'su'|translate}}</strong></span
             >
             <span
               class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"
@@ -173,7 +173,7 @@
             >
           </div>
           <div class="cart__shipping">
-            Shipping &amp; taxes calculated at checkout
+            {{'sat'|translate}}
           </div>
           <p class="cart_tearm">
             <label>
@@ -185,7 +185,7 @@
                 value="tearm"
                 required=""
               />
-              I agree with the terms and conditions</label
+              {{'iaw'|translate}}</label
             >
           </p>
           <input
@@ -193,7 +193,7 @@
             name="checkout"
             id="cartCheckout"
             class="btn btn--small-wide checkout btn--secondary"
-            value="Checkout"
+            value="{{'che'|translate}}"
             routerLink="checkout/paypal"
           />
           <div class="paymnet-img">

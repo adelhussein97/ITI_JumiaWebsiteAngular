@@ -7,18 +7,18 @@
         <div class="create-ac-content bg-light-gray padding-20px-all">
           <form #formRef="ngForm">
             <fieldset>
-              <h2 class="login-title mb-3">Billing details</h2>
+              <h2 class="login-title mb-3">{{'bid'|translate}}</h2>
               <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                  <label for="input-firstname">Name <span class="required-f">*</span></label>
+                  <label for="input-firstname">{{'name'|translate}}<span class="required-f">*</span></label>
                   <input name="firstname" #shipNameInput="ngModel" value="" id="input-firstname" type="text" [(ngModel)]="ship.Name" required pattern="[A-Za-z]{2,15}">
                   <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >Name is required</div>
-                    <div *ngIf="shipNameInput.errors?.['pattern']">Name is must be at least 2 character</div>
+                    <div *ngIf="shipNameInput.errors?.['required']" >{{'nais'|translate}}</div>
+                    <div *ngIf="shipNameInput.errors?.['pattern']">{{'naism'|translate}}</div>
                    </div>
                 </div>
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                  <label for="input-lastname">Date <span class="required-f">*</span></label>
+                  <label for="input-lastname">{{'date'|translate}} <span class="required-f">*</span></label>
                   <input name="lastname" value={{date1}} id="input-lastname" type="datetime-local" [(ngModel)]="ship.Date" required>
                 </div>
               </div>
@@ -27,20 +27,20 @@
             <fieldset>
               <div class="row">
                 <div class="form-group col-md-12 col-lg-6 col-xl-12 required">
-                  <label for="input-address-1">Address <span class="required-f">*</span></label>
+                  <label for="input-address-1">{{'address'|translate}} <span class="required-f">*</span></label>
                   <input name="address_1" #shipNameInput="ngModel" value="" id="input-address-1" type="text" [(ngModel)]="ship.Address" required pattern="[A-Za-z]{2,15}">
                   <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >Address is required</div>
-                    <div *ngIf="shipNameInput.errors?.['pattern']">Address is must be at least 2 character</div>
+                    <div *ngIf="shipNameInput.errors?.['required']" >{{'adis'|translate}}</div>
+                    <div *ngIf="shipNameInput.errors?.['pattern']">{{'adism'|translate}}</div>
                    </div>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-xl-6">
-                  <label for="input-address-2">Area <span class="required-f">*</span></label>
+                  <label for="input-address-2">{{'area'|translate}} <span class="required-f">*</span></label>
                   <input name="address_2" value="" id="input-address-2" type="text" [(ngModel)]="ship.Area" required>
                   <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >Area is required</div>
+                    <div *ngIf="shipNameInput.errors?.['required']" >{{'aris'|translate}}</div>
                     <!-- <div *ngIf="shipNameInput.errors?.['pattern']">Area is must be at least 2 character</div> -->
                    </div>
                 </div>
@@ -48,7 +48,7 @@
                   <label for="input-city">City <span class="required-f">*</span></label>
                   <input name="city" value="" id="input-city" type="text" [(ngModel)]="ship.City" required>
                   <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >Address is required</div>
+                    <div *ngIf="shipNameInput.errors?.['required']" >{{'adis'|translate}}</div>
                     <!-- <div *ngIf="shipNameInput.errors?.['pattern']">Address is must be at least 2 character</div> -->
                    </div>
                 </div>
@@ -60,7 +60,7 @@
             </div> -->
 
             <div class="your-payment mt-3">
-              <h2 class="payment-title mb-3">payment method</h2>
+              <h2 class="payment-title mb-3">{{'pm'|translate}}</h2>
               <div class="payment-method">
                 <div class="payment-accordion">
                   <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -89,18 +89,18 @@
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
         <div class="your-order-payment">
           <div class="your-order">
-            <h2 class="order-title mb-4">Your Order</h2>
+            <h2 class="order-title mb-4">{{'yo'|translate}}</h2>
 
             <div class="table-responsive-sm order-table">
 
               <table class="bg-white table table-bordered table-hover text-center">
                 <thead>
                   <tr>
-                    <th class="text-left">Product Name</th>
-                    <th>Price</th>
+                    <th class="text-left">{{'pn'|translate}}</th>
+                    <th>{{'pr'|translate}}</th>
                     <!-- <th>Size</th> -->
-                    <th>Qty</th>
-                    <th>Subtotal</th>
+                    <th>{{'qu'|translate}}</th>
+                    <th>{{'su'|translate}}</th>
                   </tr>
                 </thead>
                 <tbody>
