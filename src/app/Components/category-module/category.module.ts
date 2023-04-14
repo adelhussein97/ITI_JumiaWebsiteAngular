@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
-import { CategoryComponent } from './category/category.component';
+import { CategoryComponent } from '../category/category.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 const routes : Routes = [
@@ -11,11 +12,12 @@ const routes : Routes = [
 
 @NgModule({
   declarations: [
-    CategoryComponent
+    // CategoryComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CategoryModule { }

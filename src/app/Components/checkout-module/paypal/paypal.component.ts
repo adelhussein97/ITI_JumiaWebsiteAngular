@@ -11,6 +11,7 @@ import {
 import { Icart } from 'src/app/Model/icart';
 import { IcartItems } from 'src/app/Model/icart-items';
 import { CartApiService } from 'src/app/services/cart-api.service';
+import { AuthServicesService } from 'src/app/services/auth-services.service';
 
 @Component({
   selector: 'app-paypal',
@@ -30,7 +31,8 @@ export class PaypalComponent implements OnInit {
   constructor(
     private shipping: ShippingService,
     private router: Router,
-    private cartapi: CartApiService
+    private cartapi: CartApiService,
+    private auth:AuthServicesService
   ) {}
 
   ngOnInit() {
@@ -92,6 +94,7 @@ export class PaypalComponent implements OnInit {
         this.AddNewOrder();
         this.AddNew();
         this.AddNewOrderDetails();
+        this.removeAll();
         console.log(this.cart);
         console.log(this.cartitems);
 
@@ -134,7 +137,7 @@ export class PaypalComponent implements OnInit {
 
   AddNew() {
     this.shipping.addNewShipping(this.ship).subscribe((data) => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/category']);
     });
   }
 
@@ -142,7 +145,7 @@ export class PaypalComponent implements OnInit {
     this.cartapi.AddNewOrder(this.cart).subscribe({
       next: (data) => {
         console.log(data);
-        this.router.navigate(['/product/allproducts']);
+        this.router.navigate(['/category']);
       },
       error: (err) => {
         console.log(err.message);
@@ -171,12 +174,12 @@ export class PaypalComponent implements OnInit {
       // for (var item of this.getCartDetails) {
       this.cart.Discount = 25;
       // }
-      this.cart.CartStatusId = 2;
-      this.cart.ApplicationUserId = JSON.parse(localStorage.getItem('UserId')!);
+      // this.cart.CartStatusId = 2;
+      // this.cart.ApplicationUserId = JSON.parse(localStorage.getItem('UserId')!);
       this.cart.CardTypeId = 1;
       for (var item of this.getCartDetails) {
         this.cartitems.push({
-          cartId: this.cartapi.GetLastCartId(),
+          // cartId: this.cartapi.GetLastCartId(),
           productId: item.Id,
           TotalCost: item.UnitPrice * item.Quantity,
           Quantity: item.Quantity,
@@ -191,6 +194,15 @@ export class PaypalComponent implements OnInit {
       }
     }
   }
+  cartNumber:number=0;
+removeAll(){
+  localStorage.removeItem('localCart');
+  this.getCartDetails=[];
+  this.total=0;
+  this.cartNumber=0;
+  this.auth.cartSubject.next(this.cartNumber);
+
+}
 
   loadCart() {
     if (localStorage.getItem('localCart')) {
@@ -204,3 +216,4 @@ export class PaypalComponent implements OnInit {
     }
   }
 }
+//

@@ -29,6 +29,10 @@ import { CategoryModule } from './Components/category-module/category.module';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { CartModule } from './Components/cart/cart.module';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { AllProductsComponent } from './Components/all-products/all-products.component';
+import { CategoryComponent } from './Components/category/category.component';
+import { ListviewProductComponent } from './Components/product-module/listview-product/listview-product.component';
+import { ProductdetailsComponent } from './Components/product-module/productdetails/productdetails.component';
 
 export function createtranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -41,6 +45,10 @@ export function createtranslateLoader(http: HttpClient) {
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
+    AllProductsComponent,
+    CategoryComponent,
+    ListviewProductComponent,
+    ProductdetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,12 +57,12 @@ export function createtranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ProductModule,
+    // ProductModule,
     IdentityModule,
     CheckoutModule,
     ContactModule,
     AboutusModule,
-    CategoryModule,
+    // CategoryModule,
     CartModule,
     NgxPayPalModule,
 

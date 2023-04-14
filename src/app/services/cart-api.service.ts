@@ -29,6 +29,12 @@ export class CartApiService {
     );
   }
 
+GetCartsByUserId(userId: string): Observable<Icart[]> {
+    return this.httpclient.get<Icart[]>(
+      `${environment.APIUrl}/Carts/GetcartsByUserId?userid=${userId}`
+    );
+  }
+
   AddOrderDetails(cartitems: IcartItems): Observable<IcartItems> {
     //debugger
     return this.httpclient.post<IcartItems>(
