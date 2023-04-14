@@ -6,25 +6,31 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListviewProductComponent } from './listview-product/listview-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes =[
-  {path:'',redirectTo:'/product/allproducts',pathMatch:'full'},
-  {path:'productdetails/:pid',component:ProductdetailsComponent ,title:'ProductDetails'},
-  {path:'allproducts',component:AllProductsComponent,title:'AllProducts'},
-  {path:'listview',component:ListviewProductComponent,title:'AllProducts'},
-
-]
+const routes: Routes = [
+  { path: '', redirectTo: '/product/allproducts', pathMatch: 'full' },
+  {
+    path: 'productdetails/:pid',
+    component: ProductdetailsComponent,
+    title: 'ProductDetails',
+  },
+  {
+    path: 'allproducts',
+    component: AllProductsComponent,
+    title: 'AllProducts',
+  },
+  {
+    path: 'listview',
+    component: ListviewProductComponent,
+    title: 'AllProducts',
+  },
+];
 
 @NgModule({
   declarations: [
     ProductdetailsComponent,
     AllProductsComponent,
     ListviewProductComponent,
-
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(routes)
-  ]
+  imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
 })
-export class ProductModule { }
+export class ProductModule {}

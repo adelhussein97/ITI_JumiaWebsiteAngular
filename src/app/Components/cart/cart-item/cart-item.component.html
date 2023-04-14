@@ -39,20 +39,24 @@
                   class="cart__row border-bottom line1 cart-flex border-top"
                 >
                   <td class="cart__image-wrapper cart-flex-item text-center">
-                    <img src=" {{getCartDetail.img}}" width="50" height="60" />
+                    <img
+                      [src]="getCartDetail.imageurl"
+                      width="50"
+                      height="60"
+                    />
                   </td>
                   <td class="cart__image-wrapper cart-flex-item text-center">
-                    {{getCartDetail.Name}}
+                    {{getCartDetail.name}}
                   </td>
 
                   <td class="cart__price-wrapper cart-flex-item text-center">
-                    <span class="money">{{getCartDetail.Discount}}</span>
+                    <span class="money">{{getCartDetail.discountpercent}}</span>
                   </td>
                   <!-- <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.Discription}}</span>
                 </td>  -->
                   <td class="cart__price-wrapper cart-flex-item text-center">
-                    <span class="money">{{getCartDetail.UnitPrice}}</span>
+                    <span class="money">{{getCartDetail.unitprice}}</span>
                   </td>
                   <!-- <td class="cart__price-wrapper cart-flex-item text-center">
                   <span class="money">{{getCartDetail.Brand}}</span>
@@ -74,7 +78,7 @@
                         ></a>
                         <!-- <input class="cart__qty-input qty" type="text" name="updates[]" id="qty"
                        value={{getCartDetail.Quantity}}  pattern="[0-9]*"> -->
-                        <span class="p-2">{{getCartDetail.Quantity}}</span>
+                        <span class="p-2">{{getCartDetail.quantity}}</span>
                         <a
                           class="qtyBtn plus"
                           href="javascript:void(0);"

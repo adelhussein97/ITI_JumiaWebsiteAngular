@@ -169,6 +169,7 @@
                         class="dropdown-item d-flex justify-content-start"
                         routerLink="/user/userprofile"
                         routerLinkActive="active"
+                        *ngIf="_authServices.loggedIn()"
                       >
                         <i class="fa-regular fa-user ms-2"></i>
                         اعدادات الحساب

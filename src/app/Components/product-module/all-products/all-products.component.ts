@@ -17,7 +17,6 @@ export class AllProductsComponent implements OnInit, OnChanges {
   productsImage: Iproductimage[] = [];
 
   @Input() receivedCatID: number = 0;
-  @Input() productId: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,17 +25,28 @@ export class AllProductsComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.productService.getAllProducts().subscribe((data) => {
-      this.products = data;
+    this.productService.GetProductsWithImgs().subscribe((data2) => {
+      this.products = data2;
+      console.log(this.products);
     });
+
     this.productService.getAllCategories().subscribe((data) => {
       this.categories = data;
     });
-    this.productService
-      .getAllProductsImages(this.productId)
-      .subscribe((data) => {
-        this.productsImage = data;
-      });
+
+    // this.productService.getAllProductsImages().subscribe((data) => {
+    //   this.productsImage = data;
+    // });
+    // this.productService.getAllProducts().subscribe((data) => {
+    //   this.products = data;
+    //   for (let index = 0; index < this.products.length; index++) {
+    //     if (this.products[index].id == this.productsImage[index].productId) {
+    //       this.products[index].prdImages = this.productsImage[index].url;
+    //       this.productsWithImgs.push(this.products[index]);
+    //       console.log(this.productsWithImgs);
+    //     }
+    //   }
+    // });
   }
 
   ngOnChanges(): void {
@@ -54,13 +64,11 @@ export class AllProductsComponent implements OnInit, OnChanges {
   }
 
   prdDetails(prdId: number) {
-    console.log(Number);
     this.router.navigate(['/product/productdetails/', prdId]);
   }
-
-  getProductByID(prodId: number): Iproduct | undefined {
-    return this.products.find((prd) => prd.id == prodId);
-  }
+  // getProductByID(prodId: number): Iproduct | undefined {
+  //   return this.products.find((prd) => prd.id == prodId);
+  // }
 }
 
 // filterByCategory(event:any){

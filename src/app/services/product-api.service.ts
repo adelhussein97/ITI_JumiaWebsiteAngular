@@ -11,10 +11,20 @@ import { Icategory } from '../Model/icategory';
 })
 export class ProductApiService {
   constructor(private httpClient: HttpClient) {}
-
+  getAllProductsImages(): Observable<Iproductimage[]> {
+    return this.httpClient.get<Iproductimage[]>(
+      `${environment.APIUrl}/Products/GetAllProductsImages`
+    );
+  }
   getAllProducts(): Observable<Iproduct[]> {
     return this.httpClient.get<Iproduct[]>(
       `${environment.APIUrl}/Products/GetAllProducts`
+    );
+  }
+
+  GetProductsWithImgs(): Observable<Iproduct[]> {
+    return this.httpClient.get<Iproduct[]>(
+      `https://localhost:7018/api/Products/GetAllProducts/GetAllProductsWithImgs`
     );
   }
 
@@ -31,13 +41,7 @@ export class ProductApiService {
   }
   getProductsById(pid: number): Observable<Iproduct> {
     return this.httpClient.get<Iproduct>(
-      `${environment.APIUrl}/Products/GetProduct/${pid}`
-    );
-  }
-
-  getAllProductsImages(id: any): Observable<Iproductimage[]> {
-    return this.httpClient.get<Iproductimage[]>(
-      `${environment.APIUrl}/Products/GetProductImages/${id}`
+      `https://localhost:7018/api/Products/GetAllProducts/GetAllProductsWithImgs/${pid}`
     );
   }
 
