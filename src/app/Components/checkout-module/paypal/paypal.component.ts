@@ -32,7 +32,7 @@ export class PaypalComponent implements OnInit {
     private shipping: ShippingService,
     private router: Router,
     private cartapi: CartApiService,
-    private auth:AuthServicesService
+    private auth: AuthServicesService
   ) {}
 
   ngOnInit() {
@@ -194,15 +194,14 @@ export class PaypalComponent implements OnInit {
       }
     }
   }
-  cartNumber:number=0;
-removeAll(){
-  localStorage.removeItem('localCart');
-  this.getCartDetails=[];
-  this.total=0;
-  this.cartNumber=0;
-  this.auth.cartSubject.next(this.cartNumber);
-
-}
+  cartNumber: number = 0;
+  removeAll() {
+    localStorage.removeItem('localCart');
+    this.getCartDetails = [];
+    this.total = 0;
+    this.cartNumber = 0;
+    this.auth.cartSubject.next(this.cartNumber);
+  }
 
   loadCart() {
     if (localStorage.getItem('localCart')) {

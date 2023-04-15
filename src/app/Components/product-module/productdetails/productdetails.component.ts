@@ -59,17 +59,16 @@ export class ProductdetailsComponent implements OnInit {
     //   this.location.back();
     // }
   }
-   quantity = 1;
+  quantity = 1;
   inc() {
-  // quantity = 1 ;
+    // quantity = 1 ;
 
     // console.log(prod.Quantity);
-     //if (prod.quantity != null) prod.quantity += 1;
-     if(this.prod.quantity > this.quantity)
-    // else
-    this.quantity++;
+    //if (prod.quantity != null) prod.quantity += 1;
+    if (this.prod.quantity > this.quantity)
+      // else
+      this.quantity++;
     console.log(this.prod.quantity);
-
   }
 
   dec() {
@@ -86,13 +85,13 @@ export class ProductdetailsComponent implements OnInit {
     let cartDataNull = localStorage.getItem('localCart');
     if (cartDataNull == null) {
       let storeDataGet: any = [];
+      this.prod.quantity = this.quantity;
       storeDataGet.push(this.prod);
       localStorage.setItem('localCart', JSON.stringify(storeDataGet));
     } else {
       var id = this.prod.id;
       let index: number = -1;
       this.itemcart = JSON.parse(localStorage.getItem('localCart')!);
-
       for (let i = 0; i < this.itemcart.length; i++) {
         if (id === parseInt(this.itemcart[i].id)) {
           this.itemcart[i].quantity = this.prod.quantity;

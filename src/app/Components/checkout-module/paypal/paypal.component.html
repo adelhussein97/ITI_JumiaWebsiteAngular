@@ -1,7 +1,5 @@
 <div class="container-fluied">
-
   <div class="container">
-
     <div class="row billing-fields">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 sm-margin-30px-bottom">
         <div class="create-ac-content bg-light-gray padding-20px-all">
@@ -10,16 +8,46 @@
               <h2 class="login-title mb-3">{{'bid'|translate}}</h2>
               <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                  <label for="input-firstname">{{'name'|translate}}<span class="required-f">*</span></label>
-                  <input name="firstname" #shipNameInput="ngModel" value="" id="input-firstname" type="text" [(ngModel)]="ship.Name" required pattern="[A-Za-z]{2,15}">
-                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >{{'nais'|translate}}</div>
-                    <div *ngIf="shipNameInput.errors?.['pattern']">{{'naism'|translate}}</div>
-                   </div>
+                  <label for="input-firstname"
+                    >{{'name'|translate}}<span class="required-f"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    name="firstname"
+                    #shipNameInput="ngModel"
+                    value=""
+                    id="input-firstname"
+                    type="text"
+                    [(ngModel)]="ship.Name"
+                    required
+                    pattern="[A-Za-z]{2,15}"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    [hidden]="shipNameInput.valid || shipNameInput.untouched "
+                  >
+                    <div *ngIf="shipNameInput.errors?.['required']">
+                      {{'nais'|translate}}
+                    </div>
+                    <div *ngIf="shipNameInput.errors?.['pattern']">
+                      {{'naism'|translate}}
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                  <label for="input-lastname">{{'date'|translate}} <span class="required-f">*</span></label>
-                  <input name="lastname" value={{date1}} id="input-lastname" type="datetime-local" [(ngModel)]="ship.Date" required>
+                  <label for="input-lastname"
+                    >{{'date'|translate}}
+                    <span class="required-f">*</span></label
+                  >
+                  <input
+                    name="lastname"
+                    value="{{date1}}"
+                    id="input-lastname"
+                    type="datetime-local"
+                    [(ngModel)]="ship.Date"
+                    required
+                  />
                 </div>
               </div>
             </fieldset>
@@ -27,30 +55,78 @@
             <fieldset>
               <div class="row">
                 <div class="form-group col-md-12 col-lg-6 col-xl-12 required">
-                  <label for="input-address-1">{{'address'|translate}} <span class="required-f">*</span></label>
-                  <input name="address_1" #shipNameInput="ngModel" value="" id="input-address-1" type="text" [(ngModel)]="ship.Address" required pattern="[A-Za-z]{2,15}">
-                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >{{'adis'|translate}}</div>
-                    <div *ngIf="shipNameInput.errors?.['pattern']">{{'adism'|translate}}</div>
-                   </div>
+                  <label for="input-address-1"
+                    >{{'address'|translate}}
+                    <span class="required-f">*</span></label
+                  >
+                  <input
+                    name="address_1"
+                    #shipNameInput="ngModel"
+                    value=""
+                    id="input-address-1"
+                    type="text"
+                    [(ngModel)]="ship.Address"
+                    required
+                    pattern="[A-Za-z]{2,15}"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    [hidden]="shipNameInput.valid || shipNameInput.untouched "
+                  >
+                    <div *ngIf="shipNameInput.errors?.['required']">
+                      {{'adis'|translate}}
+                    </div>
+                    <div *ngIf="shipNameInput.errors?.['pattern']">
+                      {{'adism'|translate}}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-xl-6">
-                  <label for="input-address-2">{{'area'|translate}} <span class="required-f">*</span></label>
-                  <input name="address_2" value="" id="input-address-2" type="text" [(ngModel)]="ship.Area" required>
-                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >{{'aris'|translate}}</div>
+                  <label for="input-address-2"
+                    >{{'area'|translate}}
+                    <span class="required-f">*</span></label
+                  >
+                  <input
+                    name="address_2"
+                    value=""
+                    id="input-address-2"
+                    type="text"
+                    [(ngModel)]="ship.Area"
+                    required
+                  />
+                  <div
+                    class="alert alert-danger"
+                    [hidden]="shipNameInput.valid || shipNameInput.untouched "
+                  >
+                    <div *ngIf="shipNameInput.errors?.['required']">
+                      {{'aris'|translate}}
+                    </div>
                     <!-- <div *ngIf="shipNameInput.errors?.['pattern']">Area is must be at least 2 character</div> -->
-                   </div>
+                  </div>
                 </div>
                 <div class="form-group col-md-6 col-lg-6 col-xl-6 required">
-                  <label for="input-city">City <span class="required-f">*</span></label>
-                  <input name="city" value="" id="input-city" type="text" [(ngModel)]="ship.City" required>
-                  <div class="alert alert-danger" [hidden]="shipNameInput.valid || shipNameInput.untouched " >
-                    <div *ngIf="shipNameInput.errors?.['required']" >{{'adis'|translate}}</div>
+                  <label for="input-city"
+                    >City <span class="required-f">*</span></label
+                  >
+                  <input
+                    name="city"
+                    value=""
+                    id="input-city"
+                    type="text"
+                    [(ngModel)]="ship.City"
+                    required
+                  />
+                  <div
+                    class="alert alert-danger"
+                    [hidden]="shipNameInput.valid || shipNameInput.untouched "
+                  >
+                    <div *ngIf="shipNameInput.errors?.['required']">
+                      {{'adis'|translate}}
+                    </div>
                     <!-- <div *ngIf="shipNameInput.errors?.['pattern']">Address is must be at least 2 character</div> -->
-                   </div>
+                  </div>
                 </div>
               </div>
             </fieldset>
@@ -63,22 +139,35 @@
               <h2 class="payment-title mb-3">{{'pm'|translate}}</h2>
               <div class="payment-method">
                 <div class="payment-accordion">
-                  <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <div
+                    class="accordion accordion-flush"
+                    id="accordionFlushExample"
+                  >
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed btn btn-warning" [disabled]="formRef.invalid" type="button" data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <button
+                          class="accordion-button collapsed btn btn-warning"
+                          [disabled]="formRef.invalid"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapseOne"
+                          aria-expanded="false"
+                          aria-controls="flush-collapseOne"
+                        >
                           paypal
                         </button>
                       </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse mt-3"
-                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <div
+                        id="flush-collapseOne"
+                        class="accordion-collapse collapse mt-3"
+                        aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample"
+                      >
                         <!-- <div id="mypaypalbuttons"></div> -->
                         <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -92,8 +181,9 @@
             <h2 class="order-title mb-4">{{'yo'|translate}}</h2>
 
             <div class="table-responsive-sm order-table">
-
-              <table class="bg-white table table-bordered table-hover text-center">
+              <table
+                class="bg-white table table-bordered table-hover text-center"
+              >
                 <thead>
                   <tr>
                     <th class="text-left">{{'pn'|translate}}</th>
@@ -109,7 +199,10 @@
                     <td>{{getCartDetail.unitprice |currency:'USD '}}</td>
                     <!-- <td>S</td> -->
                     <td>{{getCartDetail.quantity}}</td>
-                    <td> {{getCartDetail.quantity * getCartDetail.unitprice |currency:'USD '}}</td>
+                    <td>
+                      {{getCartDetail.quantity * getCartDetail.unitprice
+                      |currency:'USD '}}
+                    </td>
                   </tr>
                   <!-- <tr>
                     <td class="text-left">Argon Sweater</td>
@@ -141,7 +234,6 @@
           </div>
 
           <hr />
-
         </div>
       </div>
     </div>
@@ -150,3 +242,4 @@
 
     <!-- <h1>fady</h1> -->
   </div>
+</div>
