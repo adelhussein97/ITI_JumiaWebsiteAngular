@@ -16,12 +16,12 @@
         <td>{{ order.paymentDate }}</td>
         <td>{{ order.totalCost | currency }}</td>
 
-        <td (ng-switch)="order.cartStatusId">
-          <div (ng-switch-when)="0">Completed</div>
-          <div (ng-switch-when)="1">Pending</div>
-          <div (ng-switch-when)="2">Open</div>
-          <div (ng-switch-when)="3">AwaitingApproval</div>
-          <div (ng-switch-when)="3">Closed</div>
+        <td *NgSwitch="order.cartStatusId">
+          <div *NgSwitchCase='0'>Completed</div>
+          <div *NgSwitchCase='1'>Pending</div>
+          <div *NgSwitchCase='2'>Open</div>
+          <div *NgSwitchCase='3'>AwaitingApproval</div>
+          <div *NgSwitchCase='3'>Closed</div>
         </td>
         <td>
           <button type="button" class="btn btn-link" (click)="viewOrderDetails(order)">View</button>
